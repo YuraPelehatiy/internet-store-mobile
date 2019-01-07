@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
-import { DrawerButton } from '../../components';
+import { DrawerButton, CartButton } from '../../components';
 import ProductListContainer from './ProductList/ProductListContainer';
 import screens from '../../navigation/screens';
 import s from './styles';
@@ -24,8 +24,11 @@ const HomeScreen = ({
 
 HomeScreen.navigationOptions = ({ navigation }) => ({
     headerTitle: 'Home',
-    headerLeft: () => (
+    headerLeft: (
         <DrawerButton onPress={() => navigation.toggleDrawer()} />
+    ),
+    headerRight: (
+        <CartButton onPress={() => navigation.navigate(screens.Cart)} />
     ),
 });
 

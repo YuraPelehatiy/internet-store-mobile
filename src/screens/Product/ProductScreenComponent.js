@@ -15,7 +15,7 @@ const ProductScreen = ({
         />
         <Text>{product.price}</Text>
         <Text>{product.description}</Text>
-        <Button>
+        <Button large>
             Add to Cart
         </Button>
     </SafeAreaView>

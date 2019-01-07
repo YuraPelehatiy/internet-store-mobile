@@ -3,15 +3,15 @@ import { TouchableOpacity, Text } from 'react-native';
 // import { Ionicons } from '@expo/vector-icons';
 import s from './styles';
 
-const DrawerButton = props => (
+const CartButton = props => (
     <TouchableOpacity
         {...props}
         style={s.button}
     >
         <Text>
-            Drawer
+            Cart
         </Text>
     </TouchableOpacity>
 );
 
-export default DrawerButton;
+export default CartButton;

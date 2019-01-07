@@ -2,10 +2,10 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import DrawerItem from '../DrawerItem/DrawerItem';
-import { UnauthorizedDrawerConfig } from './DrawerConfig';
+import { AuthorizedDrawerConfig } from './DrawerConfig';
 import Logo from '../Logo/Logo';
 
-const UnauthorizedDrawer = ({
+const AuthorizedDrawer = ({
     navigation,
     activeItemKey,
 }) => (
@@ -14,7 +14,7 @@ const UnauthorizedDrawer = ({
             forceInset={{ top: 'always', horizontal: 'never' }}
         >
             <Logo />
-            {UnauthorizedDrawerConfig.items.map(item => (
+            {AuthorizedDrawerConfig.items.map(item => (
                 <DrawerItem
                     key={item.id}
                     title={item.title}
@@ -28,4 +28,4 @@ const UnauthorizedDrawer = ({
     </ScrollView>
 );
 
-export default UnauthorizedDrawer;
+export default AuthorizedDrawer;

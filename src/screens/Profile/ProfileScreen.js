@@ -3,17 +3,17 @@ import { View, Text } from 'react-native';
 import s from './styles';
 import { DrawerButton } from '../../components';
 
-const CartScreen = () => (
+const ProfileScreen = () => (
     <View style={s.container}>
-        <Text>Cart Screen</Text>
+        <Text>Profile Screen</Text>
     </View>
 );
 
-CartScreen.navigationOptions = ({ navigation }) => ({
-    headerTitle: 'Cart',
+ProfileScreen.navigationOptions = ({ navigation }) => ({
+    headerTitle: 'Profile',
     headerLeft: () => (
         <DrawerButton onPress={() => navigation.toggleDrawer()} />
     ),
 });
 
-export default CartScreen;
+export default ProfileScreen;

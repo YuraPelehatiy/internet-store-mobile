@@ -1,23 +1,36 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import {
+    View,
+    Text,
+    Image,
+    TouchableOpacity,
+} from 'react-native';
+import s from './styles';
 
 const ProductButton = ({
     // id,
     image,
-    name,
+    title,
     price,
+    ...props
 }) => (
-    <View>
-        <Image
-            source={{ uri: image }}
-        />
-        <Text>
-            {name}
-        </Text>
-        <Text>
-            {price}
-        </Text>
-    </View>
+    <TouchableOpacity
+        {...props}
+        style={s.button}
+    >
+        <View style={s.container}>
+            <Image
+                source={{ uri: image }}
+                style={s.img}
+            />
+            <Text>
+                {title}
+            </Text>
+            <Text>
+                {price}
+            </Text>
+        </View>
+    </TouchableOpacity>
 );
 
 export default ProductButton;

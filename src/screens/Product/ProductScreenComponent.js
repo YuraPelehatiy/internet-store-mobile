@@ -2,14 +2,22 @@ import React from 'react';
 import { Text, Image } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import s from './styles';
+import { Button } from '../../components';
 
-const ProductScreen = () => (
+const ProductScreen = ({
+    product,
+}) => (
     <SafeAreaView style={s.container}>
-        <Text>Product Screen</Text>
+        <Text>{product.title}</Text>
         <Image
             style={{ width: 170, height: 300 }}
-            source={{ uri: 'https://www.t-mobile.com/content/dam/t-mobile/en-p/cell-phones/apple/apple-iphone-x/space-gray/Apple-iPhoneX-SpaceGray-1-3x.jpg' }}
+            source={{ uri: product.image }}
         />
+        <Text>{product.price}</Text>
+        <Text>{product.description}</Text>
+        <Button>
+            Add to Cart
+        </Button>
     </SafeAreaView>
 );
 

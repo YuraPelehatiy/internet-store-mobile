@@ -16,4 +16,5 @@ export default {
     Product: 'Product',
     AboutUs: 'AboutUs',
     Settings: 'Settings',
+    Cart: 'Cart',
 };

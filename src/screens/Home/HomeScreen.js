@@ -1,8 +1,11 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import { DrawerButton } from '../../components';
+import ProductListContainer from './ProductList/ProductListContainer';
 import screens from '../../navigation/screens';
 import s from './styles';
+
 
 const HomeScreen = ({
     navigation,
@@ -13,11 +16,17 @@ const HomeScreen = ({
         >
             Home Screen
         </Text>
+        <View style={s.list}>
+            <ProductListContainer />
+        </View>
     </SafeAreaView>
 );
 
-HomeScreen.navigationOptions = () => ({
-    title: 'Home',
+HomeScreen.navigationOptions = ({ navigation }) => ({
+    headerTitle: 'Home',
+    headerLeft: () => (
+        <DrawerButton onPress={() => navigation.toggleDrawer()} />
+    ),
 });
 
 export default HomeScreen;

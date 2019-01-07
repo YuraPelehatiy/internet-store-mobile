@@ -1,31 +1,28 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
-import screens from '../../navigation/screens';
-import DrawerItem from './DrawerItem';
+import DrawerItem from '../DrawerItem/DrawerItem';
+import { UnauthorizedDrawerConfig } from './DrawerConfig';
 
-const UnauthorizedDrawer = () => {
-    const items = [
-        {
-            id: 1, label: 'Home', key: screens.Home, iconName: 'md-home',
-        },
-        {
-            id: 2, label: 'About Us', key: screens.AboutUs, iconName: 'md-information-circle-outline',
-        },
-    ];
-
-    return (
-        <ScrollView>
-            <SafeAreaView>
-                {items.map(item => (
-                    <DrawerItem
-                        key={item.id}
-                        {...item}
-                    />
-                ))}
-            </SafeAreaView>
-        </ScrollView>
-    );
-};
+const UnauthorizedDrawer = ({
+    navigation,
+    activeItemKey,
+}) => (
+    <ScrollView>
+        <SafeAreaView
+            forceInset={{ top: 'always', horizontal: 'never' }}
+        >
+            {UnauthorizedDrawerConfig.items.map(item => (
+                <DrawerItem
+                    key={item.id}
+                    title={item.title}
+                    onPress={() => navigation.navigate(item.key)}
+                    isActive={activeItemKey === item.key}
+                    iconName={item.iconName}
+                />
+            ))}
+        </SafeAreaView>
+    </ScrollView>
+);
 
 export default UnauthorizedDrawer;

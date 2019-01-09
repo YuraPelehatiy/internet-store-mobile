@@ -5,3 +5,4 @@ export { default as DrawerButton } from './DrawerButton/DrawerButton';
 export { default as DrawerItem } from './DrawerItem/DrawerItem';
 export { default as UnauthorizedDrawer } from './Drawer/UnauthorizedDrawer';
 export { default as CartButton } from './CartButton/CartButton';
+export { default as Loader } from './Loader/Loader';

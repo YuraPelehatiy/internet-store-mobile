@@ -7,10 +7,12 @@
         "react/prop-types": [0, { "ignore": ["*"] }],
         "import/prefer-default-export": 0,
         "import/no-extraneous-dependencies": 0,
+        "prefer-destructuring": 0,
         "indent": ["error", 4],
         "prefer-single": true,
         "react/refer-single": "prefer-single",
         "jsx-quotes": ["error", "prefer-single"],
-        "eol-last": ["error", "never"] 
+        "eol-last": ["error", "never"],
+        "no-use-before-define": "off"
     }
 }

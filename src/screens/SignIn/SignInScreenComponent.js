@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, KeyboardAvoidingView } from 'react-native';
+import { View, Text } from 'react-native';
 import s from './styles';
 import { DrawerButton, Button, Input } from '../../components';
 
@@ -9,21 +9,19 @@ const SignInScreen = ({
     signIn,
     onChange,
     email,
-    passwrod,
+    password,
 }) => (
     <View style={s.container}>
         <View style={s.top}>
             <Text>Sign In Screen</Text>
             <Input
                 value={email}
-                field='email'
-                onChageText={text => onChange(text)}
+                onChangeText={text => onChange('email', text)}
                 placeholder='Email'
             />
             <Input
-                value={passwrod}
-                field='passwrod'
-                onChageText={text => onChange(text)}
+                value={password}
+                onChangeText={text => onChange('password', text)}
                 placeholder='Password'
                 secureTextEntry
             />

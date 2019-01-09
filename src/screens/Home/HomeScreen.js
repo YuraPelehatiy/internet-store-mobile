@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { DrawerButton, CartButton } from '../../components';
 import ProductListContainer from './ProductList/ProductListContainer';
@@ -7,15 +7,8 @@ import screens from '../../navigation/screens';
 import s from './styles';
 
 
-const HomeScreen = ({
-    navigation,
-}) => (
+const HomeScreen = () => (
     <SafeAreaView style={s.container}>
-        <Text
-            onPress={() => navigation.navigate(screens.Product)}
-        >
-            Home Screen
-        </Text>
         <View style={s.list}>
             <ProductListContainer />
         </View>

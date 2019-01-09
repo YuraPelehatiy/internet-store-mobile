@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    link: {
-        width: 100,
-    },
     container: {
         height: 200,
     },
@@ -17,5 +14,8 @@ export default StyleSheet.create({
         borderRadius: 5,
         margin: 5,
         padding: 5,
+    },
+    fullWidth: {
+        flexDirection: 'row',
     },
 });

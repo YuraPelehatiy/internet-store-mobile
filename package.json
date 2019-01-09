@@ -20,6 +20,7 @@
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
+    "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0"
   },
@@ -29,7 +30,8 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.12.2"
+    "eslint-plugin-react": "^7.12.2",
+    "remote-redux-devtools": "^0.5.16"
   },
   "private": true
 }

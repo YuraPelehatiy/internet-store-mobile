@@ -7,10 +7,15 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    list: {
+    cartList: {
         flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
+        alignSelf: 'stretch',
+    },
+    flatList: {
+        alignSelf: 'stretch',
+    },
+    flatListContent: {
+        flex: 1,
+        alignSelf: 'stretch',
     },
 });

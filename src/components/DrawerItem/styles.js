@@ -5,13 +5,13 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         height: 54,
-        backgroundColor: colors.white,
+        backgroundColor: colors.drawerItem.backgroundColor,
         alignItems: 'center',
         flexDirection: 'row',
         paddingLeft: 20,
     },
     containerActive: {
-        backgroundColor: colors.oragne,
+        backgroundColor: colors.drawerItem.backgroundColorActive,
     },
     icon: {
         width: 32,
@@ -22,11 +22,11 @@ export default StyleSheet.create({
         width: 32,
     },
     title: {
-        color: colors.black,
+        color: colors.drawerItem.text,
         marginLeft: 5,
         fontSize: 17,
     },
     titleActive: {
-        color: colors.white,
+        color: colors.drawerItem.textActive,
     },
 });

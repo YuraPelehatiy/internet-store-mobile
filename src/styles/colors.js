@@ -8,6 +8,16 @@ export default {
         backgroundColor: '#fff',
     },
 
+    header: {
+        backgroundColor: '#ff8a00',
+        headerTintColor: '#fff',
+        headerButtonsColor: '#fff',
+    },
+
+    authScreens: {
+        backgroundColor: '#ff8a00',
+    },
+
     drawerItem: {
         backgroundColor: '#fff',
         backgroundColorActive: '#ff8a00',

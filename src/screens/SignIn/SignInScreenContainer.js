@@ -3,6 +3,7 @@ import {
     withHandlers,
     withStateHandlers,
     hoistStatics,
+    withPropsOnChange,
 } from 'recompose';
 import screens from '../../navigation/screens';
 import SignInScreenComponent from './SignInScreenComponent';
@@ -10,12 +11,11 @@ import SignInScreenComponent from './SignInScreenComponent';
 export default hoistStatics(
     compose(
         withStateHandlers({
-            firstName: '',
-            lastName: '',
             email: '',
             password: '',
+            isValid: false,
         }, {
-            onChage: () => (field, value) => ({
+            onChange: () => (field, value) => ({
                 [field]: value,
             }),
         }),
@@ -26,5 +26,16 @@ export default hoistStatics(
             ),
             signIn: props => () => props.navigation.navigate(screens.AuthorizedApp),
         }),
+        withPropsOnChange(
+            ['email', 'password'],
+            (props) => {
+                const isValid = (
+                    props.password.trim().length >= 8
+                    && props.email.trim().includes('@')
+                );
+
+                props.onChange('isValid', isValid);
+            },
+        ),
     ),
 )(SignInScreenComponent);

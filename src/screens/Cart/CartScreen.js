@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import s from './styles';
 import { DrawerButton } from '../../components';
+import CartListContainer from './CartList/CartListContainer';
 
 const CartScreen = () => (
     <View style={s.container}>
-        <Text>Cart Screen</Text>
+        <View style={s.list}>
+            <CartListContainer />
+        </View>
     </View>
 );
 

@@ -16,3 +16,23 @@ export const Cart = {
         return axios.get(`${API_HOST}${API_VERSION}/products${query}`);
     },
 };
+
+export const Auth = {
+    login(body) {
+        return axios.post(`${API_HOST}${API_VERSION}/auth/login`, body);
+    },
+
+    register(body) {
+        return axios.post(`${API_HOST}${API_VERSION}/auth/register`, body);
+    },
+
+    remember(body) {
+        return axios.post(`${API_HOST}${API_VERSION}/auth/remember`, body);
+    },
+};
+
+export const User = {
+    getCurrent() {
+        return axios.get(`${API_HOST}${API_VERSION}/users/current`);
+    },
+};

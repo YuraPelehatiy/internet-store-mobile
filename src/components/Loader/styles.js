@@ -1,16 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    container: {
+    loader: {
         flex: 1,
         backgroundColor: '#fff',
-        justifyContent: 'center',
         alignItems: 'center',
-    },
-    list: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
         justifyContent: 'center',
     },
 });

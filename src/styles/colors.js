@@ -4,6 +4,11 @@ export default {
     silver: '',
     white: '#ffffff',
 
+    productButton: {
+        title: '#ff8a00',
+        price: '#000',
+    },
+
     drawer: {
         backgroundColor: '#fff',
     },
@@ -14,8 +19,14 @@ export default {
         headerButtonsColor: '#fff',
     },
 
+    input: {
+        borderColor: '#ff8a00',
+        backgroundColor: '#fff',
+    },
+
     authScreens: {
-        backgroundColor: '#ff8a00',
+        backgroundColor: '#fff',
+        textLinkColor: '#ff8a00',
     },
 
     drawerItem: {

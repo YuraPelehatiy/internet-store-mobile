@@ -13,7 +13,7 @@ const SignInScreen = ({
 }) => (
     <View style={s.container}>
         <View style={s.top}>
-            <Text>Sign In Screen</Text>
+            <Text style={s.header}>Sign In</Text>
             <Input
                 value={email}
                 onChangeText={text => onChange('email', text)}
@@ -25,11 +25,11 @@ const SignInScreen = ({
                 placeholder='Password'
                 secureTextEntry
             />
-            <Text onPress={navigateToSignUp}>
-                Go to Sign Up Screen
+            <Text onPress={navigateToSignUp} style={s.textLink}>
+                Sign Up
             </Text>
-            <Text onPress={navigateToRestorePasswrod}>
-                Go to Restore Password Screen
+            <Text onPress={navigateToRestorePasswrod} style={s.textLink}>
+                Forgot password?
             </Text>
         </View>
         <View style={s.bottom}>

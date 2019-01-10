@@ -1,7 +1,47 @@
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 
 const API_HOST = 'https://internet-store-api.herokuapp.com/api/';
-const API_VERSION = 'v2';
+const API_VERSION = 'v3';
+
+let _token = null;
+
+export const setToken = (token) => {
+    _token = token;
+
+    AsyncStorage.setItem('token', token);
+
+    if (_token === 'undefined') {
+        _token = null;
+    }
+
+    axios.defaults.headers.Authorization = _token
+        ? `Bearer ${_token}`
+        : null;
+};
+
+export const removeToken = () => {
+    AsyncStorage.removeItem('token');
+
+    _token = null;
+
+    axios.defaults.headers.Authorization = null;
+};
+
+export const isAuthenticated = () => {
+    if (_token === 'undefined') {
+        return false;
+    }
+
+    return !!_token;
+};
+
+
+export const initApp = () => {
+    const token = AsyncStorage.getItem('token');
+
+    setToken(token);
+};
 
 export const Products = {
     fetchProducts() {

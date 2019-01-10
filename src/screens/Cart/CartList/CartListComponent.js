@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
-import ProductButton from '../../../components/ProductButton/ProductButton';
+// import ProductButton from '../../../components/ProductButton/ProductButton';
 import s from './styles';
 
 const ProductListComponent = ({
     products,
-    removeItemFromCart,
-    navigateToProductScreen,
+    renderProductButton,
+    cartItems,
 }) => {
     if (products.length === 0) {
         return (
@@ -25,14 +25,7 @@ const ProductListComponent = ({
                 numColumns={1}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <ProductButton
-                        {...item}
-                        key={item.id}
-                        onPress={() => navigateToProductScreen(item)}
-                        fullWidth
-                        titleButton='Remove from cart'
-                        onPressButton={() => removeItemFromCart({ id: item.id })}
-                    />
+                    renderProductButton(item, cartItems)
                 )}
             />
         </View>

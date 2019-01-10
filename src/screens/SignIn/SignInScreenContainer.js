@@ -5,11 +5,22 @@ import {
     hoistStatics,
     withPropsOnChange,
 } from 'recompose';
+import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
 import SignInScreenComponent from './SignInScreenComponent';
+import * as appOperations from '../../modules/app/appOperations';
+
+const mapStateToProps = state => ({
+    user: state.app.user,
+});
+
+const mapStateToDispatch = {
+    signIn: appOperations.signIn,
+};
 
 export default hoistStatics(
     compose(
+        connect(mapStateToProps, mapStateToDispatch),
         withStateHandlers({
             email: '',
             password: '',
@@ -24,7 +35,17 @@ export default hoistStatics(
             navigateToRestorePasswrod: props => () => (
                 props.navigation.navigate(screens.RestorePassword)
             ),
-            signIn: props => () => props.navigation.navigate(screens.AuthorizedApp),
+            signIn: props => async () => {
+                try {
+                    await props.signIn({
+                        email: props.email,
+                        password: props.password,
+                    });
+                    // return props.navigation.navigate(screens.AuthorizedApp);
+                } catch (err) {
+                    console.log('ERROR');
+                }
+            },
         }),
         withPropsOnChange(
             ['email', 'password'],

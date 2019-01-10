@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../styles';
 
 export default StyleSheet.create({
     input: {
-        borderColor: '#ff8a00',
+        borderColor: colors.input.borderColor,
         borderWidth: 1,
         alignSelf: 'stretch',
         padding: 5,
-        margin: 3,
+        marginBottom: 8,
         borderRadius: 5,
     },
 });

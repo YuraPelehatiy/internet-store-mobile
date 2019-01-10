@@ -7,42 +7,57 @@ import {
 } from 'react-native';
 import s from './styles';
 import Button from '../Button/Button';
+import Counter from '../Counter/Counter';
 
 const ProductButton = ({
-    // id,
+    id,
     image,
     title,
     price,
+    count,
+    increase,
+    decrease,
+    isCounter,
     fullWidth,
-    titleButton,
-    onPressButton,
+    titleActionButton,
+    onPressActionButton,
     ...props
 }) => (
     <TouchableOpacity
         {...props}
         style={s.button}
     >
-        <View style={[fullWidth && s.fullWidth]}>
+        <View style={[s.container, fullWidth && s.fullWidth]}>
+            <View>
+                {isCounter && (
+                    <Counter
+                        increment={increase}
+                        decrement={decrease}
+                        value={count}
+                        id={id}
+                    />
+                )}
+            </View>
             <View style={[s.container]}>
                 <Image
                     source={{ uri: image }}
                     style={s.img}
                 />
                 <View>
-                    <Text>
+                    <Text style={s.title}>
                         {title}
                     </Text>
-                    <Text>
-                        {price}
+                    <Text style={s.price}>
+                        {`${price} грн`}
                     </Text>
                 </View>
             </View>
-            {titleButton
-            && onPressButton
+            {titleActionButton
+            && onPressActionButton
             && (
-                <View>
-                    <Button onPress={onPressButton}>
-                        {titleButton}
+                <View style={s.actionButton}>
+                    <Button onPress={onPressActionButton}>
+                        {titleActionButton}
                     </Button>
                 </View>
             )

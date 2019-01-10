@@ -1,15 +1,27 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../styles';
 
 export default StyleSheet.create({
     container: {
-        height: 200,
+        height: 220,
+        justifyContent: 'center',
     },
     img: {
         width: 150,
         height: 150,
     },
+    title: {
+        textAlign: 'center',
+        fontSize: 18,
+        maxWidth: 150,
+        color: colors.productButton.title,
+    },
+    price: {
+        textAlign: 'center',
+        color: colors.productButton.price,
+    },
     button: {
-        borderColor: '#aaa',
+        borderColor: '#ddd',
         borderWidth: 1,
         borderRadius: 5,
         margin: 5,
@@ -17,5 +29,9 @@ export default StyleSheet.create({
     },
     fullWidth: {
         flexDirection: 'row',
+    },
+    actionButton: {
+        flex: 1,
+        alignItems: 'center',
     },
 });

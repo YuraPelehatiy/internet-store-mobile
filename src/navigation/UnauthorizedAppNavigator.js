@@ -27,6 +27,6 @@ export default createDrawerNavigator({
         },
     },
 }, {
-    initialRouteName: screens.Home,
+    initialRouteName: screens.SignIn,
     contentComponent: UnauthorizedDrawer,
 });

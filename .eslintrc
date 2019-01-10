@@ -13,6 +13,8 @@
         "react/refer-single": "prefer-single",
         "jsx-quotes": ["error", "prefer-single"],
         "eol-last": ["error", "never"],
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "react/destructuring-assignment":0,
+        "no-underscore-dangle":"off"
     }
 }

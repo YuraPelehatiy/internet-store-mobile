@@ -1,6 +1,15 @@
 import { createSelector } from 'reselect';
 
-const getProductsItems = state => state.cart.items;
+const getProductsItems = (state, isLoading) => {
+    // We use this condition and the isLoading parameter to force
+    // the getProducts selector to recalculate after fetching data
+    // from the server.
+    if (isLoading) {
+        return [];
+    }
+
+    return state.cart.items;
+};
 const getProductsEntities = state => state.entities.products;
 
 

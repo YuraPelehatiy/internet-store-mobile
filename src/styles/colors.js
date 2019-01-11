@@ -31,10 +31,17 @@ export default {
 
     drawerItem: {
         backgroundColor: '#fff',
-        backgroundColorActive: '#ff8a00',
+        backgroundColorActive: '#eee',
         text: '#000',
-        textActive: '#fff',
+        textActive: '#ff8a00',
         icon: '#000',
-        iconActive: '#fff',
+        iconActive: '#ff8a00',
+    },
+
+    drawerButton: {
+        color: '#fff',
+    },
+    cartButton: {
+        color: '#fff',
     },
 };

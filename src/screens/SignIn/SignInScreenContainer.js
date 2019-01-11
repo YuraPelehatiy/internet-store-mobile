@@ -9,9 +9,11 @@ import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
 import SignInScreenComponent from './SignInScreenComponent';
 import * as appOperations from '../../modules/app/appOperations';
+import { withLoadingModal } from '../../utils/enhancers';
 
 const mapStateToProps = state => ({
-    user: state.app.user,
+    user: state.app,
+    isLoading: state.app.isSigningIn,
 });
 
 const mapStateToDispatch = {
@@ -21,9 +23,10 @@ const mapStateToDispatch = {
 export default hoistStatics(
     compose(
         connect(mapStateToProps, mapStateToDispatch),
+        withLoadingModal('isLoading', 'Signing In...'),
         withStateHandlers({
-            email: '',
-            password: '',
+            email: 'admin@gmail.com',
+            password: '12345',
             isValid: false,
         }, {
             onChange: () => (field, value) => ({
@@ -41,7 +44,7 @@ export default hoistStatics(
                         email: props.email,
                         password: props.password,
                     });
-                    // return props.navigation.navigate(screens.AuthorizedApp);
+                    return props.navigation.navigate(screens.AuthorizedApp);
                 } catch (err) {
                     console.log('ERROR');
                 }

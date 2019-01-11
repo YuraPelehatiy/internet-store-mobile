@@ -6,10 +6,10 @@ const API_VERSION = 'v3';
 
 let _token = null;
 
-export const setToken = (token) => {
+export const setToken = async (token) => {
     _token = token;
 
-    AsyncStorage.setItem('token', token);
+    await AsyncStorage.setItem('token', token);
 
     if (_token === 'undefined') {
         _token = null;
@@ -20,8 +20,8 @@ export const setToken = (token) => {
         : null;
 };
 
-export const removeToken = () => {
-    AsyncStorage.removeItem('token');
+export const removeToken = async () => {
+    await AsyncStorage.removeItem('token');
 
     _token = null;
 
@@ -37,10 +37,10 @@ export const isAuthenticated = () => {
 };
 
 
-export const initApp = () => {
-    const token = AsyncStorage.getItem('token');
+export const initApp = async () => {
+    const token = await AsyncStorage.getItem('token');
 
-    setToken(token);
+    await setToken(token);
 };
 
 export const Products = {
@@ -51,7 +51,7 @@ export const Products = {
 
 export const Cart = {
     fetchProductsByIds(ids) {
-        const query = `ids[]=${ids.join('&ids[]=')}`;
+        const query = `?ids[]=${ids.join('&ids[]=')}`;
 
         return axios.get(`${API_HOST}${API_VERSION}/products${query}`);
     },

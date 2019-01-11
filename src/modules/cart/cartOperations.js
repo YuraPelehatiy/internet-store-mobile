@@ -3,7 +3,7 @@ import * as schemes from '../../api/Schemes';
 import * as cartActions from './cartActions';
 import * as Api from '../../api/Api';
 
-export const fetchProductsByIsd = () => async (dispatch, getState) => {
+export const fetchProductsByIds = () => async (dispatch, getState) => {
     try {
         const products = getState().entities.products;
         const items = getState().cart.items;

@@ -7,5 +7,6 @@ export { default as UnauthorizedDrawer } from './Drawer/UnauthorizedDrawer';
 export { default as AauthorizedDrawer } from './Drawer/AuthorizedDrawer';
 export { default as CartButton } from './CartButton/CartButton';
 export { default as Loader } from './Loader/Loader';
+export { default as LoaderModal } from './LoaderModal/LoaderModal';
 export { default as Counter } from './Counter/Counter';
 export { default as Logo } from './Logo/Logo';

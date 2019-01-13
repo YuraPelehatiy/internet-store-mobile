@@ -3,6 +3,7 @@ import { Loader } from '../../components';
 
 const withLoading = isLoading => branch(
     props => props[isLoading],
+    // propsMaper(),
     renderComponent(Loader),
 );
 

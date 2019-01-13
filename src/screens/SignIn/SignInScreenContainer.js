@@ -23,11 +23,12 @@ const mapStateToDispatch = {
 export default hoistStatics(
     compose(
         connect(mapStateToProps, mapStateToDispatch),
-        withLoadingModal('isLoading', 'Signing In...'),
+        withLoadingModal(props => props.isLoading, 'Signing In...'),
         withStateHandlers({
             email: 'admin@gmail.com',
-            password: '12345',
+            password: '12345678',
             isValid: false,
+            errorMessage: '',
         }, {
             onChange: () => (field, value) => ({
                 [field]: value,
@@ -38,15 +39,16 @@ export default hoistStatics(
             navigateToRestorePasswrod: props => () => (
                 props.navigation.navigate(screens.RestorePassword)
             ),
-            signIn: props => async () => {
+            signIn: props => async () => { // eslint-disable-line
                 try {
+                    props.onChange('errorMessage', '');
                     await props.signIn({
                         email: props.email,
                         password: props.password,
                     });
                     return props.navigation.navigate(screens.AuthorizedApp);
                 } catch (err) {
-                    console.log('ERROR');
+                    props.onChange('errorMessage', 'Incorrect email or password');
                 }
             },
         }),

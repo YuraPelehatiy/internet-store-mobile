@@ -19,11 +19,11 @@ export const signIn = values => async (dispatch) => {
     try {
         dispatch(appActions.signInStart());
         const res = await Api.Auth.login(values);
-        console.log('RES', res.data);
+
         await Api.setToken(res.data.token);
 
-        // const resUser = Api.User.getCurrent();
-        // console.log('RES USER', resUser.data);
+        const resUser = Api.User.getCurrent();
+        console.log('RES USER', resUser.data);
         dispatch(appActions.addUser({
             user: res.data.user,
         }));

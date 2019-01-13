@@ -38,13 +38,16 @@ export const AuthorizedDrawerConfig = {
             id: 3, title: 'Cart', key: screens.Cart, iconName: 'info',
         },
         {
-            id: 4, title: 'Profile', key: screens.Profile, iconName: 'info',
+            id: 4, separator: true,
         },
         {
-            id: 5, separator: true,
+            id: 5, title: 'Profile', key: screens.Profile, iconName: 'info',
         },
         {
-            id: 6, title: 'Sign Out', key: screens.SignIn, iconName: 'info',
+            id: 6, separator: true,
+        },
+        {
+            id: 7, title: 'Sign Out', key: screens.SignIn, iconName: 'info',
         },
     ],
 };

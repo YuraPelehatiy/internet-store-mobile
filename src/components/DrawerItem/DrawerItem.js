@@ -8,8 +8,10 @@ const DrawerItem = ({
     // iconName,
     title,
     onPress,
-    isActive,
+    activeItemKey,
+    screenKey,
     separator,
+    navigation,
 }) => {
     if (separator) {
         return (
@@ -17,8 +19,18 @@ const DrawerItem = ({
         );
     }
 
+    const isActive = activeItemKey === screenKey;
+
+    const onPressTouchable = () => {
+        if (typeof onPress === 'function') {
+            return onPress();
+        }
+
+        return navigation.navigate(screenKey);
+    };
+
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity onPress={() => onPressTouchable()}>
             <View style={[s.container, isActive && s.containerActive]}>
                 {/* <MaterialIcons
                     size={30}

@@ -15,7 +15,7 @@ export const setToken = async (token) => {
         _token = null;
     }
 
-    axios.defaults.headers.Authorization = _token
+    axios.defaults.headers.common.Authorization = _token
         ? `Bearer ${_token}`
         : null;
 };
@@ -25,7 +25,7 @@ export const removeToken = async () => {
 
     _token = null;
 
-    axios.defaults.headers.Authorization = null;
+    axios.defaults.headers.common.Authorization = null;
 };
 
 export const isAuthenticated = () => {
@@ -44,8 +44,9 @@ export const initApp = async () => {
 };
 
 export const Products = {
-    fetchProducts() {
-        return axios.get(`${API_HOST}${API_VERSION}/products`);
+    fetchProducts(offset, limit) {
+        const query = `?offset=${offset}&limit=${limit}`;
+        return axios.get(`${API_HOST}${API_VERSION}/products${query}`);
     },
 };
 

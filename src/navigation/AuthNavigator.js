@@ -3,6 +3,7 @@ import screens from './screens';
 import SignInScreen from '../screens/SignIn/SignInScreenContainer';
 import SignUpScreen from '../screens/SignUp/SignUpScreen';
 import RestorePasswrodScreen from '../screens/RestorePassword/RestorePasswrod';
+import { defaultNavigationOptions } from './NavigationOptions';
 
 export default createStackNavigator({
     [screens.SignIn]: SignInScreen,
@@ -10,4 +11,5 @@ export default createStackNavigator({
     [screens.RestorePassword]: RestorePasswrodScreen,
 }, {
     initialRouteName: screens.SignIn,
+    defaultNavigationOptions,
 });

@@ -10,3 +10,5 @@ export { default as Loader } from './Loader/Loader';
 export { default as LoaderModal } from './LoaderModal/LoaderModal';
 export { default as Counter } from './Counter/Counter';
 export { default as Logo } from './Logo/Logo';
+export { default as Separator } from './Separator/Separator';
+export { default as ErrorSubmiting } from './ErrorSubmiting/ErrorSubmiting';

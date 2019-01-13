@@ -5,6 +5,9 @@ const initialState = {
     products: [],
     isLoading: false,
     error: null,
+    limit: 12,
+    offset: 0,
+    part: 1,
 };
 
 export default handleActions(
@@ -24,6 +27,22 @@ export default handleActions(
             isLoading: false,
             error: actions.payload,
         }),
+        [constants.FETCH_MORE]: (state, actions) => fetchMoreHandler(state, actions),
     },
     initialState,
 );
+
+function fetchMoreHandler(state, actions) {
+    if (state.limit > state.products.length) {
+        return ({
+            ...state,
+        });
+    }
+
+    return ({
+        ...state,
+        part: actions.payload.part,
+        // offset: actions.payload.part * state.limit,
+        limit: actions.payload.part * state.limit,
+    });
+}

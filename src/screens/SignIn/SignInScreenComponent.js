@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import s from './styles';
-import { DrawerButton, Button, Input } from '../../components';
+import { DrawerButton, Button, Input, ErrorSubmiting } from '../../components';
 
 const SignInScreen = ({
     navigateToSignUp,
@@ -10,6 +10,7 @@ const SignInScreen = ({
     onChange,
     email,
     password,
+    errorMessage,
 }) => (
     <View style={s.container}>
         <View style={s.top}>
@@ -25,6 +26,7 @@ const SignInScreen = ({
                 placeholder='Password'
                 secureTextEntry
             />
+            <ErrorSubmiting>{errorMessage}</ErrorSubmiting>
             <Text onPress={navigateToSignUp} style={s.textLink}>
                 Sign Up
             </Text>
@@ -38,7 +40,7 @@ const SignInScreen = ({
     </View>
 );
 
-SignInScreen.navigationOptions = ({ navigation }) => ({ // eslint-disable-line
+SignInScreen.navigationOptions = ({ navigation }) => ({
     headerTitle: 'Sign In',
     headerLeft: () => (
         <DrawerButton onPress={() => navigation.toggleDrawer()} />

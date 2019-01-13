@@ -9,13 +9,16 @@ export default StyleSheet.create({
     },
     cartList: {
         flex: 1,
-        alignSelf: 'stretch',
+        marginBottom: 57,
     },
     flatList: {
         alignSelf: 'stretch',
     },
     flatListContent: {
-        flex: 1,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
         alignSelf: 'stretch',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });

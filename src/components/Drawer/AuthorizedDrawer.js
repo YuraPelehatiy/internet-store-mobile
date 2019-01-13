@@ -1,12 +1,16 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import { connect } from 'react-redux';
+import { compose, withHandlers } from 'recompose';
 import DrawerItem from '../DrawerItem/DrawerItem';
 import Logo from '../Logo/Logo';
 import screens from '../../navigation/screens';
 import * as AlertService from '../../services/AlertService';
+import * as appOperations from '../../modules/app/appOperations';
 
 const AuthorizedDrawer = ({
+    signOut,
     navigation,
     activeItemKey,
 }) => {
@@ -22,9 +26,7 @@ const AuthorizedDrawer = ({
             title: 'Sign Out',
             key: 'SingOut',
             iconName: 'info',
-            onPress: () => AlertService.signOut(
-                () => navigation.navigate(screens.UnauthorizedApp),
-            ),
+            onPress: () => signOut(),
         },
     ];
 
@@ -51,4 +53,25 @@ const AuthorizedDrawer = ({
     );
 };
 
-export default AuthorizedDrawer;
+const mapStateToDispatch = {
+    signOut: appOperations.signOut,
+};
+
+export default compose(
+    connect(
+        undefined,
+        mapStateToDispatch,
+    ),
+    withHandlers({
+        signOut: props => () => AlertService.signOut(
+            async () => {
+                try {
+                    await props.signOut();
+                    props.navigation.navigate(screens.UnauthorizedApp);
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+        ),
+    }),
+)(AuthorizedDrawer);

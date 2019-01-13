@@ -8,6 +8,9 @@ export default StyleSheet.create({
         alignItems: 'center',
         height: 100,
         margin: 10,
+        borderWidth: 1,
+        borderColor: '#eee',
+        borderRadius: 5,
     },
     text: {
         color: '#ff8a00',
@@ -15,5 +18,9 @@ export default StyleSheet.create({
     },
     textButton: {
         fontSize: 40,
+        padding: 10,
+    },
+    horizontalStyle: {
+        flexDirection: 'row',
     },
 });

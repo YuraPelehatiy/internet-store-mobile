@@ -4,14 +4,15 @@ import * as appActions from './appActions';
 export const init = () => async (dispatch) => {
     try {
         await Api.initApp();
-
-        const res = await Api.User.getCurrent();
-
+        // const user = getState().app.user;
+        // const res = await Api.User.getCurrent();
         dispatch(appActions.addUser({
-            user: res.data.user,
+            // user: res.data.user,
         }));
     } catch (error) {
+        console('Error init');
         await Api.setToken(undefined);
+        throw new Error(error);
     }
 };
 
@@ -22,10 +23,10 @@ export const signIn = values => async (dispatch) => {
 
         await Api.setToken(res.data.token);
 
-        const resUser = Api.User.getCurrent();
-        console.log('RES USER', resUser.data);
+        const resUser = await Api.User.getCurrent();
+
         dispatch(appActions.addUser({
-            user: res.data.user,
+            user: resUser.data.user,
         }));
         dispatch(appActions.signInOk());
     } catch (error) {
@@ -41,7 +42,7 @@ export const signUp = values => async (dispatch) => {
         console.log('RES', res.data);
         await Api.setToken(res.data.token);
 
-        // const resUser = Api.User.getCurrent();
+        // const resUser = await Api.User.getCurrent();
         // console.log('RES USER', resUser.data);
         dispatch(appActions.addUser({
             user: res.data.user,

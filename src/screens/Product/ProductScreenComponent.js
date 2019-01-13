@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image } from 'react-native';
+import { Text, Image, View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import s from './styles';
 import { Button, CartButton } from '../../components';
@@ -10,16 +10,22 @@ const ProductScreen = ({
     addItemToCart,
 }) => (
     <SafeAreaView style={s.container}>
-        <Text>{product.title}</Text>
         <Image
-            style={{ width: 170, height: 300 }}
+            style={s.image}
             source={{ uri: product.image }}
         />
-        <Text>{product.price}</Text>
+        <Text style={s.title}>{product.title}</Text>
+        <Text style={s.price}>{product.price} грн</Text>
         <Text>{product.description}</Text>
         <Button large onPress={() => addItemToCart({ id: product.id, value: 1 })}>
             Add to Cart
         </Button>
+        <View style={s.footer}>
+            <Text style={s.footerPrice}>Price: {product.price} грн</Text>
+            <Button large onPress={() => addItemToCart({ id: product.id, value: 1 })}>
+                Add to Cart
+            </Button>
+        </View>
     </SafeAreaView>
 );
 

@@ -19,18 +19,20 @@ const ProductButton = ({
     decrease,
     isCounter,
     fullWidth,
+    onEnterValue,
     titleActionButton,
     onPressActionButton,
     ...props
 }) => (
     <TouchableOpacity
         {...props}
-        style={s.button}
+        style={[s.button, fullWidth && s.buttonFullWidth]}
     >
         <View style={[s.container, fullWidth && s.fullWidth]}>
             <View>
                 {isCounter && (
                     <Counter
+                        onEnterValue={onEnterValue}
                         increment={increase}
                         decrement={decrease}
                         value={count}
@@ -56,7 +58,7 @@ const ProductButton = ({
             && onPressActionButton
             && (
                 <View style={s.actionButton}>
-                    <Button onPress={onPressActionButton}>
+                    <Button onPress={onPressActionButton} large>
                         {titleActionButton}
                     </Button>
                 </View>

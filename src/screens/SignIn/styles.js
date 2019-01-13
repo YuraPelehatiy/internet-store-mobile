@@ -7,7 +7,7 @@ export default StyleSheet.create({
         backgroundColor: colors.authScreens.backgroundColor,
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingVertical: 10,
+        paddingVertical: 0,
         paddingHorizontal: 20,
     },
     header: {
@@ -17,7 +17,7 @@ export default StyleSheet.create({
         marginBottom: 20,
     },
     textLink: {
-        marginVertical: 5,
+        marginVertical: 7,
         fontSize: 16,
         color: colors.authScreens.textLinkColor,
     },

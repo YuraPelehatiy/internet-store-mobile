@@ -28,6 +28,8 @@ export default hoistStatics(
             email: 'admin@gmail.com',
             password: '12345678',
             isValid: false,
+            isValidPassword: false,
+            isValidEmail: false,
             errorMessage: '',
         }, {
             onChange: () => (field, value) => ({
@@ -40,13 +42,17 @@ export default hoistStatics(
                 props.navigation.navigate(screens.RestorePassword)
             ),
             signIn: props => async () => { // eslint-disable-line
+                if (!props.isValid) {
+                    return;
+                }
+                
                 try {
                     props.onChange('errorMessage', '');
                     await props.signIn({
                         email: props.email,
                         password: props.password,
                     });
-                    return props.navigation.navigate(screens.AuthorizedApp);
+                    return props.navigation.navigate(screens.AuthorizedApp); // eslint-disable-line
                 } catch (err) {
                     props.onChange('errorMessage', 'Incorrect email or password');
                 }
@@ -59,8 +65,11 @@ export default hoistStatics(
                     props.password.trim().length >= 8
                     && props.email.trim().includes('@')
                 );
-
+                const isValidPassword = !(props.password.trim().length >= 8);
+                const isValidEmail = !(props.email.trim().includes('@'));
                 props.onChange('isValid', isValid);
+                props.onChange('isValidPassword', isValidPassword);
+                props.onChange('isValidEmail', isValidEmail);
             },
         ),
     ),

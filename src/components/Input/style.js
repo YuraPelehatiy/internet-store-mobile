@@ -7,7 +7,9 @@ export default StyleSheet.create({
         borderWidth: 1,
         alignSelf: 'stretch',
         padding: 5,
+        paddingLeft: 10,
         marginBottom: 8,
         borderRadius: 5,
+        fontSize: 18,
     },
 });

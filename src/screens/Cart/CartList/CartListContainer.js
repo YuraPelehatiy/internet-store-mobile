@@ -51,7 +51,7 @@ export default compose(
                 fullWidth
                 titleActionButton='Remove from cart'
                 onPressActionButton={() => props.removeItemFromCart({ id: item.id })}
-             />
+            />
         ),
     }))
 )(CartListComponent);

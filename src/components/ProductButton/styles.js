@@ -3,8 +3,10 @@ import { colors } from '../../styles';
 
 export default StyleSheet.create({
     container: {
+        flex: 1,
         height: 220,
         justifyContent: 'center',
+        alignItems: 'center',
     },
     img: {
         width: 150,
@@ -27,8 +29,13 @@ export default StyleSheet.create({
         margin: 5,
         padding: 5,
     },
+    buttonFullWidth: {
+        width: '100%',
+    },
     fullWidth: {
         flexDirection: 'row',
+        width: '100%',
+        alignSelf: 'stretch',
     },
     actionButton: {
         flex: 1,

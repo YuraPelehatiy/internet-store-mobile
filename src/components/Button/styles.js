@@ -11,6 +11,7 @@ export default StyleSheet.create({
     },
     buttonText: {
         color: colors.white,
+        textAlign: 'center',
     },
     buttonLarge: {
         paddingTop: 10,

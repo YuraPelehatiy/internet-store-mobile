@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 import screens from './screens';
-import CartScreen from '../screens/Cart/CartScreen';
+import CartScreen from '../screens/Cart/CartScreenContainer';
 import ProductScreenContainer from '../screens/Product/ProductScreenContainer';
 import { defaultNavigationOptions } from './NavigationOptions';
 

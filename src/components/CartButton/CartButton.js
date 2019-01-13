@@ -13,11 +13,8 @@ const CartButton = ({
         {...props}
         style={s.button}
     >
-        <Text>
-            Cart
-        </Text>
-        <Text>
-            {countItems}
+        <Text style={{ color: '#fff' }}>
+            Cart {countItems}
         </Text>
     </TouchableOpacity>
 );

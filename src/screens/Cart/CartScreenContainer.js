@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { hoistStatics, compose } from 'recompose';
-import CartScreenComponent from './CartScreen';
+import CartScreenComponent from './CartScreenComponent';
 import * as cartSelectors from '../../modules/cart/cartSelectors';
 import * as cartActions from '../../modules/cart/cartActions';
 

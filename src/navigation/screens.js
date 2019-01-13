@@ -1,4 +1,7 @@
 export default {
+    // Screen-helper
+    AuthLoadign: 'AuthLoadign',
+
     // App
     AuthorizedApp: 'AuthorizedApp',
     UnauthorizedApp: 'UnauthorizedApp',

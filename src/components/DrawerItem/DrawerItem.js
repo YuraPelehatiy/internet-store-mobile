@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { DrawerActions } from 'react-navigation';
 // import { MaterialIcons } from '@expo/vector-icons';
 import s from './styles';
 import Separator from '../Separator/Separator';
@@ -23,10 +24,12 @@ const DrawerItem = ({
 
     const onPressTouchable = () => {
         if (typeof onPress === 'function') {
-            return onPress();
+            onPress();
+        } else {
+            navigation.navigate(screenKey);
         }
 
-        return navigation.navigate(screenKey);
+        navigation.dispatch(DrawerActions.closeDrawer());
     };
 
     return (

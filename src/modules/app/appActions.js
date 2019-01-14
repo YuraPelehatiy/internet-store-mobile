@@ -12,6 +12,10 @@ export const signUpStart = createAction(constants.SIGN_UP_START);
 export const signUpOk = createAction(constants.SIGN_UP_OK);
 export const signUpError = createAction(constants.SIGN_UP_ERROR);
 
+export const signOutStart = createAction(constants.SIGN_OUT_START);
+export const signOutOk = createAction(constants.SIGN_OUT_OK);
+export const signOutError = createAction(constants.SIGN_OUT_ERROR);
+
 export const restorePsswordStart = createAction(constants.RESTORE_PASSWORD_START);
 export const restorePsswordOk = createAction(constants.RESTORE_PASSWORD_OK);
 export const restorePsswordError = createAction(constants.RESTORE_PASSWORD_ERROR);

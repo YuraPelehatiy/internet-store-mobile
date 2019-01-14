@@ -23,7 +23,7 @@ export default StyleSheet.create({
     },
     title: {
         color: colors.drawerItem.text,
-        marginLeft: 5,
+        marginLeft: 8,
         fontSize: 17,
     },
     titleActive: {

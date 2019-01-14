@@ -9,6 +9,10 @@ export const SIGN_UP_START = 'app/SIGN_UP_START';
 export const SIGN_UP_OK = 'app/SIGN_UP_OK';
 export const SIGN_UP_ERROR = 'app/SIGN_UP_ERROR';
 
+export const SIGN_OUT_START = 'app/SIGN_OUT_START';
+export const SIGN_OUT_OK = 'app/SIGN_OUT_OK';
+export const SIGN_OUT_ERROR = 'app/SIGN_OUT_ERROR';
+
 export const RESTORE_PASSWORD_START = 'app/RESTORE_PASSWORD_START';
 export const RESTORE_PASSWORD_OK = 'app/RESTORE_PASSWORD_OK';
 export const RESTORE_PASSWORD_ERROR = 'app/RESTORE_PASSWORD_ERROR';

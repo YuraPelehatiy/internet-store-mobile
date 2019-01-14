@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView, withNavigation } from 'react-navigation'; // eslint-disable-line
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import { compose, lifecycle, withStateHandlers } from 'recompose';
+import { AppLoading } from 'expo';
 import { Loader } from '../../components';
 import screens from '../../navigation/screens';
 import * as appOperations from '../../modules/app/appOperations';
+import { loadFont } from '../../utils';
 
 const s = StyleSheet.create({
     container: {
@@ -17,11 +19,20 @@ const s = StyleSheet.create({
 });
 
 // Screen-helper
-const AuthLoadignScreen = () => (
-    <SafeAreaView style={s.container}>
-        <Loader />
-    </SafeAreaView>
-);
+// TODO: Change AuthLoadingScreen;
+const AuthLoadignScreen = ({ isLoaded }) => {
+    if (!isLoaded) {
+        return (
+            <AppLoading />
+        );
+    }
+
+    return (
+        <SafeAreaView style={s.container}>
+            <Loader />
+        </SafeAreaView>
+    );
+};
 
 const mapStateToDispatch = {
     init: appOperations.init,
@@ -32,15 +43,24 @@ export default compose(
         undefined,
         mapStateToDispatch,
     ),
+    withStateHandlers({
+        isLoaded: false,
+    }, {
+        loaded: () => () => ({
+            isLoaded: true,
+        }),
+    }),
     lifecycle({
         async componentDidMount() {
+            await loadFont();
+            this.props.loaded();
             try {
                 console.log('Init...');
                 await this.props.init();
                 console.log('Inited!');
                 this.props.navigation.navigate(screens.AuthorizedApp);
             } catch (error) {
-                console.log('Error');
+                console.log('Error token not found');
                 this.props.navigation.navigate(screens.UnauthorizedApp);
             }
         },

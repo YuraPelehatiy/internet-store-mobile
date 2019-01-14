@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-// import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
+import { colors } from '../../styles'
 import Separator from '../Separator/Separator';
 
 const DrawerItem = ({
-    // iconName,
+    iconName,
     title,
     onPress,
     activeItemKey,
@@ -35,14 +36,14 @@ const DrawerItem = ({
     return (
         <TouchableOpacity onPress={() => onPressTouchable()}>
             <View style={[s.container, isActive && s.containerActive]}>
-                {/* <MaterialIcons
-                    size={30}
+                <MaterialCommunityIcons
+                    size={28}
                     name={iconName}
                     color={isActive
-                        ? '#fff'
-                        : '#000'
+                        ? colors.drawerItem.iconActive
+                        : colors.drawerItem.icon
                     }
-                /> */}
+                />
                 <Text style={[s.title, isActive && s.titleActive]}>
                     {title}
                 </Text>

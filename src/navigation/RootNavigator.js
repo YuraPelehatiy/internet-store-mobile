@@ -9,5 +9,5 @@ export default createSwitchNavigator({
     [screens.AuthorizedApp]: AuthorizedAppNavigator,
     [screens.UnauthorizedApp]: UnauthorizedAppNavigator,
 }, {
-    initialRouteName: screens.UnauthorizedApp,
+    initialRouteName: screens.AuthLoadign,
 });

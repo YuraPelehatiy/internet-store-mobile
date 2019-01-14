@@ -8,6 +8,7 @@ const initialState = {
     // isLodaign
     isSigningIn: false,
     isSigningUp: false,
+    isSigningOut: false,
     isRestoringPassword: false,
 };
 
@@ -46,6 +47,20 @@ export default handleActions({
     [constants.SIGN_UP_ERROR]: (state, actions) => ({
         ...state,
         isSigningUp: false,
+        error: actions.payload,
+    }),
+    [constants.SIGN_OUT_START]: state => ({
+        ...state,
+        isSigningOut: true,
+        error: null,
+    }),
+    [constants.SIGN_OUT_OK]: state => ({
+        ...state,
+        isSigningOut: false,
+    }),
+    [constants.SIGN_OUT_ERROR]: (state, actions) => ({
+        ...state,
+        isSigningOut: false,
         error: actions.payload,
     }),
     [constants.RESTORE_PASSWORD_START]: state => ({

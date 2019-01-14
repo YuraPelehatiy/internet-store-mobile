@@ -3,15 +3,24 @@ import * as appActions from './appActions';
 
 export const init = () => async (dispatch) => {
     try {
-        await Api.initApp();
+        /* await Api.initApp();
         // const user = getState().app.user;
         // const res = await Api.User.getCurrent();
         dispatch(appActions.addUser({
             // user: res.data.user,
+        })); */
+        const token = await Api.getToken();
+        if (!token) {
+            throw Error();
+        }
+        await Api.initApp();
+        const res = await Api.User.getCurrent();
+        dispatch(appActions.addUser({
+            user: res.data.user,
         }));
     } catch (error) {
         console('Error init');
-        await Api.setToken(undefined);
+        // await Api.setToken(undefined);
         throw new Error(error);
     }
 };
@@ -56,10 +65,13 @@ export const signUp = values => async (dispatch) => {
 
 export const signOut = () => async (dispatch) => {
     try {
+        dispatch(appActions.signOutStart());
         await Api.removeToken();
 
         dispatch(appActions.removeUser());
+        dispatch(appActions.signOutOk());
     } catch (error) {
+        dispatch(appActions.signOutError({ error }));
         throw new Error();
     }
 };

@@ -12,10 +12,10 @@ const UnauthorizedDrawer = ({
     const items = [
         { separator: true },
         { title: 'Home', key: screens.Home, iconName: 'home' },
-        { title: 'About Us', key: screens.AboutUs, iconName: 'info' },
-        { title: 'Cart', key: screens.Cart, iconName: 'info' },
+        { title: 'Cart', key: screens.Cart, iconName: 'cart' },
+        { title: 'About Us', key: screens.AboutUs, iconName: 'information' },
         { separator: true },
-        { title: 'Sign In', key: screens.SignIn, iconName: 'info' },
+        { title: 'Sign In', key: screens.SignIn, iconName: 'login' },
     ];
 
     return (

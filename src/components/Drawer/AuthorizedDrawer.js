@@ -8,6 +8,7 @@ import Logo from '../Logo/Logo';
 import screens from '../../navigation/screens';
 import * as AlertService from '../../services/AlertService';
 import * as appOperations from '../../modules/app/appOperations';
+import { withLoadingModal } from '../../utils/enhancers';
 
 const AuthorizedDrawer = ({
     signOut,
@@ -17,15 +18,15 @@ const AuthorizedDrawer = ({
     const items = [
         { separator: true },
         { title: 'Home', key: screens.Home, iconName: 'home' },
-        { title: 'About Us', key: screens.AboutUs, iconName: 'info' },
-        { title: 'Cart', key: screens.Cart, iconName: 'info' },
+        { title: 'Cart', key: screens.Cart, iconName: 'cart' },
+        { title: 'About Us', key: screens.AboutUs, iconName: 'information' },
         { separator: true },
-        { title: 'Profile', key: screens.Profile, iconName: 'info' },
+        { title: 'Profile', key: screens.Profile, iconName: 'account' },
         { separator: true },
         {
             title: 'Sign Out',
             key: 'SingOut',
-            iconName: 'info',
+            iconName: 'logout',
             onPress: () => signOut(),
         },
     ];
@@ -53,15 +54,20 @@ const AuthorizedDrawer = ({
     );
 };
 
+const matStateToProps = state => ({
+    isLoadign: state.app.isSigningOut,
+});
+
 const mapStateToDispatch = {
     signOut: appOperations.signOut,
 };
 
 export default compose(
     connect(
-        undefined,
+        matStateToProps,
         mapStateToDispatch,
     ),
+    withLoadingModal(props => props.isLoadign, 'Signing Out...'),
     withHandlers({
         signOut: props => () => AlertService.signOut(
             async () => {

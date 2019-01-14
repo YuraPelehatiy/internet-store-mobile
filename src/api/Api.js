@@ -28,6 +28,12 @@ export const removeToken = async () => {
     axios.defaults.headers.common.Authorization = null;
 };
 
+export const getToken = async () => {
+    const token = await AsyncStorage.getItem('token');
+
+    return token;
+};
+
 export const isAuthenticated = () => {
     if (_token === 'undefined') {
         return false;

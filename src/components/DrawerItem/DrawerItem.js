@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
-import { colors } from '../../styles'
+import { colors } from '../../styles';
 import Separator from '../Separator/Separator';
 
 const DrawerItem = ({

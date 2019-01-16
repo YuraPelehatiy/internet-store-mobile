@@ -1,8 +1,8 @@
 import { createStackNavigator } from 'react-navigation';
 import screens from './screens';
 import SignInScreen from '../screens/SignIn/SignInScreenContainer';
-import SignUpScreen from '../screens/SignUp/SignUpScreen';
-import RestorePasswrodScreen from '../screens/RestorePassword/RestorePasswrod';
+import SignUpScreen from '../screens/SignUp/SignUpScreenContainer';
+import RestorePasswrodScreen from '../screens/RestorePassword/RestorePasswrodContainer';
 import { defaultNavigationOptions } from './NavigationOptions';
 
 export default createStackNavigator({

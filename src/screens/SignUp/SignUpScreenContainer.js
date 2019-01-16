@@ -7,27 +7,30 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
-import SignInScreenComponent from './SignInScreenComponent';
+import SignUpScreenComponent from './SignUpScreenComponent';
 import * as appOperations from '../../modules/app/appOperations';
 import { withLoadingModal } from '../../utils/enhancers';
 
 const mapStateToProps = state => ({
-    user: state.app,
-    isLoading: state.app.isSigningIn,
+    isLoading: state.app.isSigningUp,
 });
 
 const mapStateToDispatch = {
-    signIn: appOperations.signIn,
+    signUp: appOperations.signUp,
 };
 
 export default hoistStatics(
     compose(
         connect(mapStateToProps, mapStateToDispatch),
-        withLoadingModal(props => props.isLoading, 'Signing In...'),
+        withLoadingModal(props => props.isLoading, 'Signing Up...'),
         withStateHandlers({
-            email: 'admin@gmail.com',
-            password: '12345678',
+            firstName: 'Test',
+            lastName: 'Mobile',
+            email: 'mobile@gmail.com',
+            password: 'qwertyui',
             isValid: false,
+            isValidFirstName: false,
+            isValidLastName: false,
             isValidPassword: false,
             isValidEmail: false,
             errorMessage: '',
@@ -38,14 +41,16 @@ export default hoistStatics(
             showInvalidFields: props => () => ({
                 isValidPassword: !(props.password.trim().length >= 8),
                 isValidEmail: !(props.email.trim().includes('@')),
+                isValidFirstName: !(props.firstName.trim().length > 0),
+                isValidLastName: !(props.lastName.trim().length > 0),
             }),
         }),
         withHandlers({
-            navigateToSignUp: props => () => props.navigation.navigate(screens.SignUp),
+            navigateToSignIn: props => () => props.navigation.navigate(screens.SignIn),
             navigateToRestorePasswrod: props => () => (
                 props.navigation.navigate(screens.RestorePassword)
             ),
-            signIn: props => async () => { // eslint-disable-line
+            signUp: props => async () => { // eslint-disable-line
                 if (!props.isValid) {
                     props.showInvalidFields();
                     return;
@@ -53,28 +58,34 @@ export default hoistStatics(
 
                 props.onChange('isValidPassword', false);
                 props.onChange('isValidEmail', false);
+                props.onChange('isValidFirstName', false);
+                props.onChange('isValidLastName', false);
 
                 try {
                     props.onChange('errorMessage', '');
-                    await props.signIn({
+                    await props.signUp({
+                        firstName: props.firstName,
+                        lastName: props.lastName,
                         email: props.email,
                         password: props.password,
                     });
-                    return props.navigation.navigate(screens.AuthorizedApp); // eslint-disable-line
+                    return props.navigation.navigate(screens.SignIn); // eslint-disable-line
                 } catch (err) {
-                    props.onChange('errorMessage', 'Incorrect email or password');
+                    props.onChange('errorMessage', 'User already registered');
                 }
             },
         }),
         withPropsOnChange(
-            ['email', 'password'],
+            ['email', 'password', 'firstName', 'lastName'],
             (props) => {
                 const isValid = (
                     props.password.trim().length >= 8
                     && props.email.trim().includes('@')
+                    && props.firstName.trim().length > 0
+                    && props.lastName.trim().length > 0
                 );
                 props.onChange('isValid', isValid);
             },
         ),
     ),
-)(SignInScreenComponent);
+)(SignUpScreenComponent);

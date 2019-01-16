@@ -1,22 +1,40 @@
 import React from 'react';
 import { View, Text, KeyboardAvoidingView } from 'react-native';
 import s from './styles';
-import { DrawerButton, Button, Input, ErrorSubmiting } from '../../components';
+import { Button, Input, ErrorSubmiting } from '../../components';
 
-const SignInScreen = ({
-    navigateToSignUp,
+const SignUpScreen = ({
+    navigateToSignIn,
     navigateToRestorePasswrod,
-    signIn,
+    signUp,
     onChange,
+    firstName,
+    lastName,
     email,
     password,
     errorMessage,
+    isValidFirstName,
+    isValidLastName,
     isValidEmail,
     isValidPassword,
 }) => (
-    <KeyboardAvoidingView style={s.container} behavior='padding' keyboardVerticalOffset={40}>
+    <KeyboardAvoidingView style={s.container} behavior='padding'>
         <View style={s.top}>
-            <Text style={s.header}>Sign In</Text>
+            <Text style={s.header}>Sign Up</Text>
+            <Input
+                value={firstName}
+                onChangeText={text => onChange('firstName', text)}
+                placeholder='First name'
+                returnKeyType='next'
+            />
+            {isValidFirstName && <ErrorSubmiting>Please enter a valid first name</ErrorSubmiting>}
+            <Input
+                value={lastName}
+                onChangeText={text => onChange('lastName', text)}
+                placeholder='Last name'
+                returnKeyType='next'
+            />
+            {isValidLastName && <ErrorSubmiting>Please enter a valid last name</ErrorSubmiting>}
             <Input
                 value={email}
                 onChangeText={text => onChange('email', text)}
@@ -36,24 +54,21 @@ const SignInScreen = ({
             />
             {isValidPassword && <ErrorSubmiting>Please enter a valid password, password must be 8 or more symbols</ErrorSubmiting>}
             <ErrorSubmiting>{errorMessage}</ErrorSubmiting>
-            <Text onPress={navigateToSignUp} style={s.textLink}>
-                Sign Up
+            <Text onPress={navigateToSignIn} style={s.textLink}>
+                Sign In
             </Text>
             <Text onPress={navigateToRestorePasswrod} style={s.textLink}>
                 Forgot password?
             </Text>
         </View>
         <View style={s.bottom}>
-            <Button large onPress={signIn}>Sign In</Button>
+            <Button large onPress={signUp}>Sign Up</Button>
         </View>
     </KeyboardAvoidingView>
 );
 
-SignInScreen.navigationOptions = ({ navigation }) => ({
-    headerTitle: 'Sign In',
-    headerLeft: () => (
-        <DrawerButton onPress={() => navigation.toggleDrawer()} />
-    ),
+SignUpScreen.navigationOptions = () => ({
+    title: 'Sign Up',
 });
 
-export default SignInScreen;
+export default SignUpScreen;

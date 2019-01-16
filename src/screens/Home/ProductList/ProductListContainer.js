@@ -22,6 +22,7 @@ const mapStateToProps = state => ({
     isError: state.products.isError,
     part: state.products.part,
     limit: state.products.limit,
+    offset: state.products.offset,
 });
 
 const mapStateToDispatch = {
@@ -52,7 +53,7 @@ export default compose(
     }),
     lifecycle({
         componentDidUpdate(nextProps) {
-            if (this.props.limit !== nextProps.limit) {
+            if (this.props.offset !== nextProps.offset) {
                 this.props.fetchProducts(true);
             }
         },

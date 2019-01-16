@@ -7,7 +7,7 @@ const initialState = {
     error: null,
     limit: 12,
     offset: 0,
-    part: 1,
+    part: 0,
 };
 
 export default handleActions(
@@ -20,7 +20,7 @@ export default handleActions(
         [constants.FETCH_PRODUCTS_OK]: (state, actions) => ({
             ...state,
             isLoading: false,
-            products: actions.payload.ids,
+            products: [...state.products].concat(actions.payload.ids),
         }),
         [constants.FETCH_PRODUCTS_ERROR]: (state, actions) => ({
             ...state,
@@ -33,7 +33,7 @@ export default handleActions(
 );
 
 function fetchMoreHandler(state, actions) {
-    if (state.limit > state.products.length) {
+    if (state.limit + state.offset > state.products.length) {
         return ({
             ...state,
         });
@@ -42,7 +42,7 @@ function fetchMoreHandler(state, actions) {
     return ({
         ...state,
         part: actions.payload.part,
-        // offset: actions.payload.part * state.limit,
-        limit: actions.payload.part * state.limit,
+        offset: actions.payload.part * state.limit,
+        // limit: actions.payload.part * state.limit,
     });
 }

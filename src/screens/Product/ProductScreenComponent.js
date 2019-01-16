@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, View } from 'react-native';
+import { Text, Image, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import s from './styles';
 import { Button, CartButton } from '../../components';

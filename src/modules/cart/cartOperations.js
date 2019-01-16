@@ -10,18 +10,12 @@ export const fetchProductsByIds = () => async (dispatch, getState) => {
 
         const ids = Object.keys(items);
         const fetchIds = ids.map(id => (products[id] === undefined) && id);
+        fetchIds.sort();
+        fetchIds.splice(fetchIds.indexOf(false));
 
         if (fetchIds.length === 0) {
             return;
         }
-
-        /*
-        if (Object.keys(products).length > 1 || Object.keys(items) === 0) {
-            return;
-        }
-
-        const ids = Object.keys(items);
-        */
 
         dispatch(cartActions.fetchProductsStart());
 

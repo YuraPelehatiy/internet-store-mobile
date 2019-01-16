@@ -8,6 +8,13 @@ export default StyleSheet.create({
         justifyContent: 'flex-start',
         // backgroundColor: '#aaa',
     },
+    containerScroll: {
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        alignSelf: 'stretch',
+    },
     image: {
         width: 300,
         height: 300,

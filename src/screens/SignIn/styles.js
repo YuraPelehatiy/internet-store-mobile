@@ -17,7 +17,7 @@ export default StyleSheet.create({
         marginBottom: 20,
     },
     textLink: {
-        marginVertical: 7,
+        marginVertical: 9,
         fontSize: 16,
         color: colors.authScreens.textLinkColor,
     },

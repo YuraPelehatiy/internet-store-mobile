@@ -7,6 +7,11 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    emptyCartText: {
+        color: '#ccc',
+        fontSize: 20,
+        paddingBottom: 20,
+    },
     cartList: {
         flex: 1,
         marginBottom: 57,

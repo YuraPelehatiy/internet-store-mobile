@@ -1,5 +1,5 @@
 import { branch, renderComponent } from 'recompose';
-import { Loader } from '../../components';
+import Loader from '../../components/Loader/Loader';
 
 const withLoadingAndError = (isLoading, isError) => (
     branch(

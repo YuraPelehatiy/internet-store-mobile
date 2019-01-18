@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
-import { LoaderModal } from '../../components';
+import LoaderModal from '../../components/LoaderModal/LoaderModal';
 
 const styles = StyleSheet.create({
     container: {

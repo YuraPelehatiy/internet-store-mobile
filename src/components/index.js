@@ -12,3 +12,4 @@ export { default as Counter } from './Counter/Counter';
 export { default as Logo } from './Logo/Logo';
 export { default as Separator } from './Separator/Separator';
 export { default as ErrorSubmiting } from './ErrorSubmiting/ErrorSubmiting';
+export { default as Heading } from './Heading/Heading';

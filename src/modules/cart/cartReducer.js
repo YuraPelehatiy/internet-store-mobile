@@ -76,7 +76,7 @@ function increase(state, action) {
     return ({
         ...state.items,
         [action.payload.id]: {
-            id: action.payload.id,
+            ...state.items[action.payload.id],
             count: state.items[action.payload.id].count + 1,
         },
     });
@@ -90,7 +90,7 @@ function decrease(state, action) {
     return ({
         ...state.items,
         [action.payload.id]: {
-            id: action.payload.id,
+            ...state.items[action.payload.id],
             count: state.items[action.payload.id].count - 1,
         },
     });

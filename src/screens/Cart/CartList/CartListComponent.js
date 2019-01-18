@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import ProductButton from '../../../components/ProductButton/ProductButton';
 import s from './styles';
 
@@ -11,7 +12,12 @@ const ProductListComponent = ({
     if (products.length === 0) {
         return (
             <View style={s.container}>
-                <Text>Cart is empty</Text>
+                <MaterialCommunityIcons
+                    size={100}
+                    color='#ccc'
+                    name='cart-outline'
+                />
+                <Text style={s.emptyCartText}>Cart is empty</Text>
             </View>
         );
     }

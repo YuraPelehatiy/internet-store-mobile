@@ -4,6 +4,16 @@ export default {
     silver: '',
     white: '#ffffff',
 
+    screens: {
+        backgroundColor: '#fff',
+        textColor: '#000',
+        textLinkColor: '#ff8a00',
+    },
+
+    headingText: {
+        color: '#000',
+    },
+
     productButton: {
         title: '#ff8a00',
         price: '#000',

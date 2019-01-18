@@ -7,13 +7,15 @@ export const fetchProductsByIds = () => async (dispatch, getState) => {
     try {
         const products = getState().entities.products;
         const items = getState().cart.items;
+        const isLoading = getState().cart.isLoading;
 
+        // Get ids of undefined products to fetch
         const ids = Object.keys(items);
         const fetchIds = ids.map(id => (products[id] === undefined) && id);
         fetchIds.sort();
         fetchIds.splice(fetchIds.indexOf(false));
 
-        if (fetchIds.length === 0) {
+        if (fetchIds.length === 0 || isLoading) {
             return;
         }
 

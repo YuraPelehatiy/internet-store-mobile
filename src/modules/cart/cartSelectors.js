@@ -10,18 +10,18 @@ const getProductsItems = (state, isLoading) => {
 
     return state.cart.items;
 };
-const getProductsEntities = state => state.entities.products;
 
+const getProductsEntities = state => state.entities.products;
 
 export const getProducts = createSelector(
     [getProductsItems, getProductsEntities],
     (items, entities) => Object.keys(items).map((id) => {
         if (entities[id] === undefined) {
-            return {
+            return ({
                 id,
                 title: 'Loading...',
                 price: 0,
-            };
+            });
         }
 
         return entities[id];

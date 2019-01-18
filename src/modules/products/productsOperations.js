@@ -5,12 +5,14 @@ import * as schemes from '../../api/Schemes';
 
 export const fetchProducts = refres => async (dispatch, getState) => {
     try {
+        const isLoading = getState().products.isLoading;
+
         const limit = getState().products.limit;
         const offset = getState().products.offset;
 
         const ids = getState().products.products;
 
-        if (ids.length > 0 && !refres) {
+        if ((ids.length > 0 && !refres) || isLoading) {
             return;
         }
 

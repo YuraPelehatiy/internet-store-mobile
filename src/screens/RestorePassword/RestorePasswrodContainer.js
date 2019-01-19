@@ -16,13 +16,13 @@ const mapStateToProps = state => ({
     isLoading: state.app.isRestoringPassword,
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     restorePassword: appOperations.restorePassword,
 };
 
 export default hoistStatics(
     compose(
-        connect(mapStateToProps, mapStateToDispatch),
+        connect(mapStateToProps, mapDispatchToProps),
         withLoadingModal(props => props.isLoading, 'Restoring Password'),
         withStateHandlers({
             email: '',

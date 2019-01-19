@@ -22,7 +22,7 @@ const mapStateToProps = state => ({
     isLoading: state.cart.isLoading,
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     removeItemFromCart: cartActions.remove,
     increase: cartActions.increase,
     decrease: cartActions.decrease,
@@ -32,7 +32,7 @@ const mapStateToDispatch = {
 
 export default compose(
     withNavigation,
-    connect(mapStateToProps, mapStateToDispatch),
+    connect(mapStateToProps, mapDispatchToProps),
     branch(
         props => props.isLoading,
         renderComponent(Loader),

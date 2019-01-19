@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
     offset: state.products.offset,
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     fetchProducts: productsOperations.fetchProducts,
     fetchMore: productsActions.fetchMore,
 };
@@ -34,7 +34,7 @@ export default compose(
     withNavigation,
     connect(
         mapStateToProps,
-        mapStateToDispatch,
+        mapDispatchToProps,
     ),
     branch(
         props => props.isLoading && props.products.length === 0,

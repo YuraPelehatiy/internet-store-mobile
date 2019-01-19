@@ -11,9 +11,18 @@ export const fetchProductsByIds = () => async (dispatch, getState) => {
 
         // Get ids of undefined products to fetch
         const ids = Object.keys(items);
-        const fetchIds = ids.map(id => (products[id] === undefined) && id);
-        fetchIds.sort();
-        fetchIds.splice(fetchIds.indexOf(false));
+        let fetchIds = ids.map((id) => {
+            if (products[id] === undefined) {
+                return id;
+            }
+
+            return false;
+        });
+        fetchIds = fetchIds.sort();
+        if (fetchIds.indexOf(false) !== -1) {
+            fetchIds.splice(fetchIds.indexOf(false));
+        }
+
 
         if (fetchIds.length === 0 || isLoading) {
             return;

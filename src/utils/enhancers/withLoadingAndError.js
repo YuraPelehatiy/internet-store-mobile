@@ -1,12 +1,12 @@
 import { branch, renderComponent } from 'recompose';
 import Loader from '../../components/Loader/Loader';
 
-const withLoadingAndError = (isLoading, isError) => (
+const withLoadingAndError = (isLoadingPropsMaper, isErrorPropsMaper) => (
     branch(
-        props => props[isLoading],
+        props => isLoadingPropsMaper(props),
         renderComponent(Loader),
         branch(
-            props => props[isError],
+            props => isErrorPropsMaper(props),
             renderComponent(),
         ),
     )

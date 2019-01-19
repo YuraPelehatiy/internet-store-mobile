@@ -34,14 +34,14 @@ const AuthLoadignScreen = ({ isLoaded }) => {
     );
 };
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     init: appOperations.init,
 };
 
 export default compose(
     connect(
         undefined,
-        mapStateToDispatch,
+        mapDispatchToProps,
     ),
     withStateHandlers({
         isLoaded: false,

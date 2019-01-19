@@ -29,6 +29,7 @@ export default handleActions({
     [constants.SIGN_IN_OK]: state => ({
         ...state,
         isSigningIn: false,
+        isSignedIn: true,
     }),
     [constants.SIGN_IN_ERROR]: (state, actions) => ({
         ...state,
@@ -57,6 +58,7 @@ export default handleActions({
     [constants.SIGN_OUT_OK]: state => ({
         ...state,
         isSigningOut: false,
+        isSignedIn: false,
     }),
     [constants.SIGN_OUT_ERROR]: (state, actions) => ({
         ...state,

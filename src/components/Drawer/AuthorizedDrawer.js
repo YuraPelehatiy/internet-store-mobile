@@ -58,14 +58,14 @@ const matStateToProps = state => ({
     isLoadign: state.app.isSigningOut,
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     signOut: appOperations.signOut,
 };
 
 export default compose(
     connect(
         matStateToProps,
-        mapStateToDispatch,
+        mapDispatchToProps,
     ),
     withLoadingModal(props => props.isLoadign, 'Signing Out...'),
     withHandlers({

@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-// import devToolsEnhancer from 'remote-redux-devtools';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootModule from '../modules/RootModule';
@@ -13,6 +13,14 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootModule);
 
+const composeEnhancers = composeWithDevTools({ realtime: true });
+export const store = createStore(
+    persistedReducer,
+    composeEnhancers(
+        applyMiddleware(reduxThunk),
+    ),
+);
+
 /* const store = createStore(
     rootModule,
     applyMiddleware(
@@ -21,6 +29,7 @@ const persistedReducer = persistReducer(persistConfig, rootModule);
     ),
 ); */
 
+/*
 export const store = createStore(
     persistedReducer,
     applyMiddleware(
@@ -28,6 +37,7 @@ export const store = createStore(
         // devToolsEnhancer,
     ),
 );
+*/
 
 export const persistor = persistStore(store);
 

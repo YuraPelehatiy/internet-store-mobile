@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
     totalProductCount: cartSelectors.getCountItems(state),
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     removeItemFromCart: cartActions.remove,
     increase: cartActions.increase,
     decrease: cartActions.decrease,
@@ -19,7 +19,7 @@ export default hoistStatics(
     compose(
         connect(
             mapStateToProps,
-            mapStateToDispatch,
+            mapDispatchToProps,
         ),
     ),
 )(CartScreenComponent);

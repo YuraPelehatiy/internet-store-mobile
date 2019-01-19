@@ -31,6 +31,7 @@ export default handleActions({
     [constants.FETCH_PRODUCTS_START]: state => ({
         ...state,
         isLoading: true,
+        error: null,
     }),
     [constants.FETCH_PRODUCTS_OK]: state => ({
         ...state,

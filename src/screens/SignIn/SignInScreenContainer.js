@@ -16,13 +16,13 @@ const mapStateToProps = state => ({
     isLoading: state.app.isSigningIn,
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     signIn: appOperations.signIn,
 };
 
 export default hoistStatics(
     compose(
-        connect(mapStateToProps, mapStateToDispatch),
+        connect(mapStateToProps, mapDispatchToProps),
         withLoadingModal(props => props.isLoading, 'Signing In...'),
         withStateHandlers({
             email: 'admin@gmail.com',

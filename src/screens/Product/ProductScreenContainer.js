@@ -10,13 +10,13 @@ const mapStateToProps = (state, props) => ({
     product: productsSelectors.getProduct(state, props.navigation.getParam('id')),
 });
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
     addItemToCart: cartActions.add,
 };
 
 
 export default hoistStatics(
     compose(
-        connect(mapStateToProps, mapStateToDispatch),
+        connect(mapStateToProps, mapDispatchToProps),
     ),
 )(ProductScreenComponent);

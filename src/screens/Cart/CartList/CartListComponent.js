@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import ProductButton from '../../../components/ProductButton/ProductButton';
 import s from './styles';
 
-const ProductListComponent = ({
+const CartListComponent = ({
     products,
     renderProductButton,
     cartItems,
@@ -38,4 +38,4 @@ const ProductListComponent = ({
     );
 };
 
-export default ProductListComponent;
+export default CartListComponent;

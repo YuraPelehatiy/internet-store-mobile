@@ -10,6 +10,10 @@ export default {
         textLinkColor: '#ff8a00',
     },
 
+    activityIndicator: {
+        color: '#ff8a00',
+    },
+
     headingText: {
         color: '#000',
     },

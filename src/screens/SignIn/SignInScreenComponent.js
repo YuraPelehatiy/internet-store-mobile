@@ -13,6 +13,7 @@ const SignInScreen = ({
     errorMessage,
     isValidEmail,
     isValidPassword,
+    isShowingKeyboard,
 }) => (
     <KeyboardAvoidingView style={s.container} behavior='padding' keyboardVerticalOffset={40}>
         <View style={s.top}>
@@ -36,12 +37,16 @@ const SignInScreen = ({
             />
             {isValidPassword && <ErrorSubmiting>Please enter a valid password, password must be 8 or more symbols</ErrorSubmiting>}
             <ErrorSubmiting>{errorMessage}</ErrorSubmiting>
-            <Text onPress={navigateToSignUp} style={s.textLink}>
-                Sign Up
-            </Text>
-            <Text onPress={navigateToRestorePasswrod} style={s.textLink}>
-                Forgot password?
-            </Text>
+            {!isShowingKeyboard && (
+                <>
+                    <Text onPress={navigateToSignUp} style={s.textLink}>
+                        Sign Up
+                    </Text>
+                    <Text onPress={navigateToRestorePasswrod} style={s.textLink}>
+                        Forgot password?
+                    </Text>
+                </>
+            )}
         </View>
         <View style={s.bottom}>
             <Button large onPress={signIn}>Sign In</Button>
@@ -49,10 +54,10 @@ const SignInScreen = ({
     </KeyboardAvoidingView>
 );
 
-SignInScreen.navigationOptions = ({ navigation }) => ({
+SignInScreen.navigationOptions = () => ({
     headerTitle: 'Sign In',
     headerLeft: () => (
-        <DrawerButton onPress={() => navigation.toggleDrawer()} />
+        <DrawerButton />
     ),
 });
 

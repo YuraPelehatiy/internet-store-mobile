@@ -1,9 +1,11 @@
+import { Keyboard } from 'react-native';
 import {
     compose,
     withHandlers,
     withStateHandlers,
     hoistStatics,
     withPropsOnChange,
+    lifecycle,
 } from 'recompose';
 import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
@@ -58,6 +60,12 @@ export default hoistStatics(
                 } catch (err) {
                     props.onChange('errorMessage', 'Something went wrong');
                 }
+            },
+        }),
+        lifecycle({
+            componentDidMount() {
+                Keyboard.addListener('keyboardDidShow', () => this.props.onChange('isShowingKeyboard', true));
+                Keyboard.addListener('keyboardDidHide', () => this.props.onChange('isShowingKeyboard', false));
             },
         }),
         withPropsOnChange(

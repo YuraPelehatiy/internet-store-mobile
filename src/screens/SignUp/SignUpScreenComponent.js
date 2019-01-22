@@ -17,6 +17,7 @@ const SignUpScreen = ({
     isValidLastName,
     isValidEmail,
     isValidPassword,
+    isShowingKeyboard,
 }) => (
     <KeyboardAvoidingView style={s.container} behavior='padding'>
         <View style={s.top}>
@@ -54,12 +55,16 @@ const SignUpScreen = ({
             />
             {isValidPassword && <ErrorSubmiting>Please enter a valid password, password must be 8 or more symbols</ErrorSubmiting>}
             <ErrorSubmiting>{errorMessage}</ErrorSubmiting>
-            <Text onPress={navigateToSignIn} style={s.textLink}>
-                Sign In
-            </Text>
-            <Text onPress={navigateToRestorePasswrod} style={s.textLink}>
-                Forgot password?
-            </Text>
+            {!isShowingKeyboard && (
+                <>
+                    <Text onPress={navigateToSignIn} style={s.textLink}>
+                        Sign In
+                    </Text>
+                    <Text onPress={navigateToRestorePasswrod} style={s.textLink}>
+                        Forgot password?
+                    </Text>
+                </>
+            )}
         </View>
         <View style={s.bottom}>
             <Button large onPress={signUp}>Sign Up</Button>

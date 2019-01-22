@@ -18,7 +18,7 @@ const HomeScreen = () => (
 HomeScreen.navigationOptions = ({ navigation }) => ({
     headerTitle: 'Home',
     headerLeft: (
-        <DrawerButton onPress={() => navigation.toggleDrawer()} />
+        <DrawerButton />
     ),
     headerRight: (
         <CartButton onPress={() => navigation.navigate(screens.Cart)} />

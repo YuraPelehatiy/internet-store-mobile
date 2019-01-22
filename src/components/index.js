@@ -13,3 +13,4 @@ export { default as Logo } from './Logo/Logo';
 export { default as Separator } from './Separator/Separator';
 export { default as ErrorSubmiting } from './ErrorSubmiting/ErrorSubmiting';
 export { default as Heading } from './Heading/Heading';
+export { default as HeaderButton } from './HeaderButton/HeaderButton';

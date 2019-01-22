@@ -1,9 +1,11 @@
+import { Keyboard, LayoutAnimation } from 'react-native';
 import {
     compose,
     withHandlers,
     withStateHandlers,
     hoistStatics,
     withPropsOnChange,
+    lifecycle,
 } from 'recompose';
 import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
@@ -31,6 +33,7 @@ export default hoistStatics(
             isValidPassword: false,
             isValidEmail: false,
             errorMessage: '',
+            isShowingKeyboard: false,
         }, {
             onChange: () => (field, value) => ({
                 [field]: value,
@@ -64,6 +67,22 @@ export default hoistStatics(
                 } catch (err) {
                     props.onChange('errorMessage', 'Incorrect email or password');
                 }
+            },
+        }),
+        lifecycle({
+            componentDidMount() {
+                Keyboard.addListener('keyboardDidShow', () => {
+                    LayoutAnimation.easeInEaseOut();
+                    this.props.onChange('isShowingKeyboard', true);
+                });
+                Keyboard.addListener('keyboardDidHide', () => {
+                    LayoutAnimation.easeInEaseOut();
+                    this.props.onChange('isShowingKeyboard', false);
+                });
+            },
+            componentWillUnmount() {
+                Keyboard.removeAllListeners('keyboardDidShow');
+                Keyboard.removeAllListeners('keyboardDidHide');
             },
         }),
         withPropsOnChange(

@@ -23,10 +23,10 @@ const CartScreenComponent = ({
     </SafeAreaView>
 );
 
-CartScreenComponent.navigationOptions = ({ navigation }) => ({
+CartScreenComponent.navigationOptions = () => ({
     headerTitle: 'Cart',
     headerLeft: () => (
-        <DrawerButton onPress={() => navigation.toggleDrawer()} />
+        <DrawerButton />
     ),
 });
 

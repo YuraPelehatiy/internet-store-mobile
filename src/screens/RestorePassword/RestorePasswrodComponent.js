@@ -12,6 +12,7 @@ const RestorePasswrodComponent = ({
     email,
     errorMessage,
     isValidEmail,
+    isShowingKeyboard,
 }) => (
     <KeyboardAvoidingView style={s.container} behavior='padding' keyboardVerticalOffset={40}>
         <View style={s.top}>
@@ -27,12 +28,16 @@ const RestorePasswrodComponent = ({
             {isValidEmail && <ErrorSubmiting>Please enter a valid email address</ErrorSubmiting>}
             {success && <Text>We have sent instructions for your email</Text>}
             <ErrorSubmiting>{errorMessage}</ErrorSubmiting>
-            <Text onPress={navigateToSignIn} style={s.textLink}>
-                Sign In
-            </Text>
-            <Text onPress={navigateToSignUp} style={s.textLink}>
-                Sign Up
-            </Text>
+            {!isShowingKeyboard && (
+                <>
+                    <Text onPress={navigateToSignIn} style={s.textLink}>
+                        Sign In
+                    </Text>
+                    <Text onPress={navigateToSignUp} style={s.textLink}>
+                        Sign Up
+                    </Text>
+                </>
+            )}
         </View>
         <View style={s.bottom}>
             <Button large onPress={restorePassword}>Restore Passwrod</Button>

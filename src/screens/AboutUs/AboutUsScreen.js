@@ -12,10 +12,10 @@ const AboutUsScreen = () => (
     </SafeAreaView>
 );
 
-AboutUsScreen.navigationOptions = ({ navigation }) => ({
+AboutUsScreen.navigationOptions = () => ({
     headerTitle: 'About Us',
     headerLeft: () => (
-        <DrawerButton onPress={() => navigation.toggleDrawer()} />
+        <DrawerButton />
     ),
 });
 

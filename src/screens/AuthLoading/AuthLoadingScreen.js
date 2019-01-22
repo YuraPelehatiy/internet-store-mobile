@@ -1,13 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { SafeAreaView, withNavigation } from 'react-navigation'; // eslint-disable-line
+import { SafeAreaView, } from 'react-navigation'; // eslint-disable-line
 import { connect } from 'react-redux';
-import { compose, lifecycle, withStateHandlers } from 'recompose';
-import { AppLoading } from 'expo';
+import { compose, lifecycle } from 'recompose';
 import { Loader } from '../../components';
 import screens from '../../navigation/screens';
 import * as appOperations from '../../modules/app/appOperations';
-import { loadFont } from '../../utils';
 
 const s = StyleSheet.create({
     container: {
@@ -20,19 +18,12 @@ const s = StyleSheet.create({
 
 // Screen-helper
 // TODO: Change AuthLoadingScreen;
-const AuthLoadignScreen = ({ isLoaded }) => {
-    if (!isLoaded) {
-        return (
-            <AppLoading />
-        );
-    }
+const AuthLoadignScreen = () => (
+    <SafeAreaView style={s.container}>
+        <Loader />
+    </SafeAreaView>
+);
 
-    return (
-        <SafeAreaView style={s.container}>
-            <Loader />
-        </SafeAreaView>
-    );
-};
 
 const mapDispatchToProps = {
     init: appOperations.init,
@@ -43,17 +34,8 @@ export default compose(
         undefined,
         mapDispatchToProps,
     ),
-    withStateHandlers({
-        isLoaded: false,
-    }, {
-        loaded: () => () => ({
-            isLoaded: true,
-        }),
-    }),
     lifecycle({
         async componentDidMount() {
-            await loadFont();
-            this.props.loaded();
             try {
                 console.log('Init...');
                 await this.props.init();

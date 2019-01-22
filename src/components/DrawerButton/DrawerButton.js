@@ -1,13 +1,17 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-// import { withNavigation } from 'react-navigation';
+import { TouchableOpacity, Keyboard } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
 import { colors } from '../../styles';
 
-const DrawerButton = props => (
+const DrawerButton = ({ onPress, ...props }) => (
     <TouchableOpacity
         {...props}
+        onPress={() => {
+            Keyboard.dismiss();
+            props.navigation.toggleDrawer();
+        }}
         style={s.button}
     >
         <MaterialCommunityIcons
@@ -18,4 +22,4 @@ const DrawerButton = props => (
     </TouchableOpacity>
 );
 
-export default DrawerButton;
+export default withNavigation(DrawerButton);

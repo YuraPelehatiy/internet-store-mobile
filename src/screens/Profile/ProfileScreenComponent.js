@@ -25,10 +25,10 @@ const ProfileScreen = ({ user }) => (
     </View>
 );
 
-ProfileScreen.navigationOptions = ({ navigation }) => ({
+ProfileScreen.navigationOptions = () => ({
     headerTitle: 'Profile',
     headerLeft: () => (
-        <DrawerButton onPress={() => navigation.toggleDrawer()} />
+        <DrawerButton />
     ),
 });
 

@@ -38,10 +38,11 @@ export default compose(
         renderComponent(Loader),
     ),
     withHandlers({
-        navigateToProductScreen: props => item => props.navigation.push(screens.Product, {
+        navigateToProductScreen: props => item => props.navigation.navigate(screens.Product, {
             id: item.id,
             title: item.title,
         }),
+        navigateToHomeScreen: props => () => props.navigation.navigate(screens.Home),
     }),
     lifecycle({
         componentDidMount() {

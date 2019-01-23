@@ -1,8 +1,18 @@
 import React from 'react';
-import { Platform, UIManager } from 'react-native';
+import {
+    Platform,
+    UIManager,
+    BackHandler,
+    ToastAndroid,
+} from 'react-native';
 import { Provider } from 'react-redux';
 import { createAppContainer } from 'react-navigation';
-import { compose, withState, withHandlers } from 'recompose';
+import {
+    compose,
+    withState,
+    withHandlers,
+    lifecycle,
+} from 'recompose';
 import { AppLoading } from 'expo';
 import { PersistGate } from 'redux-persist/integration/react';
 import AppNavigator from './navigation/RootNavigator';
@@ -47,6 +57,8 @@ const App = ({
 
 const appEnhancer = compose(
     withState('showLoading', 'setLoadingStatus', true),
+    withState('isGoOut', 'setGoOut', true),
+    withState('timeoutId', 'setTimeoutId', undefined),
     withHandlers({
         asyncLoad: () => async () => {
             await Promise.all([
@@ -55,6 +67,23 @@ const appEnhancer = compose(
         },
         onFinish: props => () => {
             props.setLoadingStatus(false);
+        },
+        navigateBack: props => () => {
+            ToastAndroid.show('Press back button twice if you want go out', ToastAndroid.SHORT);
+            const isGoOut = props.isGoOut;
+            props.setGoOut(false);
+            if (props.timeoutId) {
+                clearTimeout(props.timeoutId);
+                props.setTimeoutId(undefined);
+            }
+            const id = setTimeout(() => props.setGoOut(true), 3000);
+            props.setTimeoutId(id);
+            return isGoOut;
+        },
+    }),
+    lifecycle({
+        componentDidMount() {
+            BackHandler.addEventListener('hardwareBackPress', this.props.navigateBack);
         },
     }),
 );

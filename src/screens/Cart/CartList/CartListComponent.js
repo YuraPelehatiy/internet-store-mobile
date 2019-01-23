@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-// import ProductButton from '../../../components/ProductButton/ProductButton';
+import { Button } from '../../../components';
 import s from './styles';
 
 const CartListComponent = ({
     products,
     renderProductButton,
     cartItems,
+    navigateToHomeScreen,
 }) => {
     if (products.length === 0) {
         return (
@@ -18,6 +19,7 @@ const CartListComponent = ({
                     name='cart-outline'
                 />
                 <Text style={s.emptyCartText}>Cart is empty</Text>
+                <Button large onPress={() => navigateToHomeScreen()}>Go to home</Button>
             </View>
         );
     }

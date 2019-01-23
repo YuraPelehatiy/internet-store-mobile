@@ -3,17 +3,14 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        // backgroundColor: '#aaa',
     },
     containerScroll: {
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        alignSelf: 'stretch',
+        justifyContent: 'flex-start',
+        margin: 5,
+        marginLeft: 10,
+        marginRight: 10,
     },
     image: {
         width: 300,
@@ -28,6 +25,9 @@ export default StyleSheet.create({
     price: {
         fontWeight: 'bold',
         fontSize: 32,
+    },
+    description: {
+        fontSize: 16,
     },
     footer: {
         paddingLeft: 15,
@@ -46,5 +46,8 @@ export default StyleSheet.create({
     },
     footerPrice: {
         fontSize: 18,
+    },
+    bottomSpace: {
+        marginBottom: 60,
     },
 });

@@ -1,5 +1,3 @@
 export default {
-    heading: {
-        fontSize: 22,
-    },
+    heading: 20,
 };

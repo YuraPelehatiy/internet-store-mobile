@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation';
 import screens from './screens';
-import AboutUsScreen from '../screens/AboutUs/AboutUsScreenContainer';
+import TermsAndConditionsScreen from '../screens/TermsAndConditions/TermsAndConditionsContainer';
 import { defaultNavigationOptions } from './NavigationOptions';
 
 export default createStackNavigator({
-    [screens.AboutUs]: AboutUsScreen,
+    [screens.TermsAndConditions]: TermsAndConditionsScreen,
 }, {
-    initialRouteName: screens.AboutUs,
+    initialRouteName: screens.TermsAndConditions,
     defaultNavigationOptions,
 });

@@ -20,4 +20,5 @@ export default {
     AboutUs: 'AboutUs',
     Settings: 'Settings',
     Cart: 'Cart',
+    TermsAndConditions: 'TermsAndConditions',
 };

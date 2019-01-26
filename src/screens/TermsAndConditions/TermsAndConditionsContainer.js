@@ -1,16 +1,15 @@
-import { connect } from 'react-redux';
 import { hoistStatics, compose } from 'recompose';
-import ProfileScreenComponent from './ProfileScreenComponent';
+import { connect } from 'react-redux';
+import TermsAndConditionsComponent from './TermsAndConditionsComponent';
 import { withLanguageOnChange } from '../../utils/enhancers';
 
 const mapStateToProps = state => ({
-    user: state.app.user,
     language: state.app.language,
 });
 
 export default hoistStatics(
     compose(
         connect(mapStateToProps),
-        withLanguageOnChange('language', 'main.profile.header'),
+        withLanguageOnChange('language', 'main.t&c.header'),
     ),
-)(ProfileScreenComponent);
+)(TermsAndConditionsComponent);

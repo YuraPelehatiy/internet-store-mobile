@@ -18,7 +18,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import AppNavigator from './navigation/RootNavigator';
 import { store, persistor } from './store/store';
 import LoadingScreen from './screens/Loading/LoadingScreen';
-import { loadFont } from './utils';
+import { loadFont, loadI18n } from './utils';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -63,13 +63,14 @@ const appEnhancer = compose(
         asyncLoad: () => async () => {
             await Promise.all([
                 loadFont(),
+                loadI18n(),
             ]);
         },
         onFinish: props => () => {
             props.setLoadingStatus(false);
         },
         navigateBack: props => () => {
-            ToastAndroid.show('Press back button twice if you want go out', ToastAndroid.SHORT);
+            ToastAndroid.show('Press back button twice if you want to go out', ToastAndroid.SHORT);
             const isGoOut = props.isGoOut;
             props.setGoOut(false);
             if (props.timeoutId) {

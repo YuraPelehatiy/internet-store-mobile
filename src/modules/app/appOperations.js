@@ -1,12 +1,16 @@
 import * as Api from '../../api/Api';
 import * as appActions from './appActions';
+import { setLocale } from '../../utils';
 
 export const init = () => async (dispatch, getState) => {
     try {
+        setLocale(getState().app.language);
+
         const token = await Api.getToken();
         if (!token) {
-            throw Error();
+            throw Error('Token not found');
         }
+
         await Api.initApp();
 
         const user = getState().app.user;

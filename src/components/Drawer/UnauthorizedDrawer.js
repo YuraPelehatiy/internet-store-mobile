@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import i18n from 'ex-react-native-i18n';
 import DrawerItem from '../DrawerItem/DrawerItem';
 import Logo from '../Logo/Logo';
 import screens from '../../navigation/screens';
@@ -11,11 +12,15 @@ const UnauthorizedDrawer = ({
 }) => {
     const items = [
         { separator: true },
-        { title: 'Home', key: screens.Home, iconName: 'home' },
-        { title: 'Cart', key: screens.Cart, iconName: 'cart' },
-        { title: 'About Us', key: screens.AboutUs, iconName: 'information' },
+        { title: i18n.t('drawer.home'), key: screens.Home, iconName: 'home' },
+        { title: i18n.t('drawer.cart'), key: screens.Cart, iconName: 'cart' },
         { separator: true },
-        { title: 'Sign In', key: screens.SignIn, iconName: 'login' },
+        { title: i18n.t('drawer.aboutUs'), key: screens.AboutUs, iconName: 'information' },
+        { title: i18n.t('drawer.t&c'), key: screens.TermsAndConditions, iconName: 'file-document' },
+        { separator: true },
+        { title: i18n.t('drawer.settings'), key: screens.Settings, iconName: 'settings' },
+        { separator: true },
+        { title: i18n.t('drawer.signIn'), key: screens.SignIn, iconName: 'login' },
     ];
 
     return (

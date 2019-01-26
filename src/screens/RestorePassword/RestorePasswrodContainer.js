@@ -11,11 +11,12 @@ import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
 import RestorePasswrodComponent from './RestorePasswrodComponent';
 import * as appOperations from '../../modules/app/appOperations';
-import { withLoadingModal } from '../../utils/enhancers';
+import { withLoadingModal, withLanguageOnChange } from '../../utils/enhancers';
 
 const mapStateToProps = state => ({
     user: state.app,
     isLoading: state.app.isRestoringPassword,
+    language: state.app.language,
 });
 
 const mapDispatchToProps = {
@@ -77,5 +78,6 @@ export default hoistStatics(
                 props.onChange('isValid', isValid);
             },
         ),
+        withLanguageOnChange('language', 'auth.restorePassword.header'),
     ),
 )(RestorePasswrodComponent);

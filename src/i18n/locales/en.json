@@ -1,0 +1,147 @@
+{
+    "drawer": {
+        "home": "Home",
+        "cart": "Cart",
+        "aboutUs": "About Us",
+        "profile": "Profile",
+        "signIn": "Sign In",
+        "signUp": "Sign Up",
+        "signOut": "Sign Out",
+        "settings": "Settings",
+        "t&c": "Terms and Conditions"
+    },
+    "main": {
+        "home": {
+            "header": "Home"
+        },
+        "cart": {
+            "header": "Cart",
+            "cart": "Cart",
+            "totalPrice": "Price",
+            "emptyCart": {
+                "message": "Cart is empty",
+                "actionButton": "Go home"
+            },
+            "buttons": {
+                "removeFromCart": "Remove from cart",
+                "checkOut": "Check Out"
+            }
+        },
+        "aboutUs": {
+            "header": "About Us",
+            "content": "About Us Screen"
+        },
+        "t&c": {
+            "header": "Terms and Conditions",
+            "content": "Terms and Conditions Screen"
+        },
+        "product": {
+            "headerDefault": "Product",
+            "price": "Price",
+            "buttons": {
+                "addToCart": "Add to Cart"
+            }
+        },
+        "profile": {
+            "header": "Profile",
+            "heading": "Profile",
+            "firstName": "First Name:",
+            "lastName": "Last Name:",
+            "email": "Email:",
+            "registredAt": "Registred at:"
+        },
+        "settings": {
+            "header": "Settings",
+            "heading": "Settings",
+            "settings": {
+                "language": {
+                    "title": "language",
+                    "values": {
+                        "en": "English",
+                        "uk": "Ukrainian"
+                    }
+                }
+            }
+        }
+    },
+    "auth": {
+        "signIn": {
+            "header": "Sign In",
+            "heading": "Sign In",
+            "inputs": {
+                "email": {
+                    "placeholder": "Email",
+                    "error": "Please enter a valid email address"
+                },
+                "password": {
+                    "placeholder": "Password",
+                    "error": "Please enter a valid password, password must be 8 or more symbols"
+                }
+            },
+            "links": {
+                "toSignUp": "Sign Up",
+                "toRestorePassword": "Forgot password?"
+            },
+            "buttons": {
+                "signIn": "Sign In"
+            }
+        },
+        "signUp": {
+            "header": "Sign Up",
+            "heading": "Sign Up",
+            "inputs": {
+                "firstName": {
+                    "placeholder": "First Name",
+                    "error": "Please enter a valid first name"
+                },
+                "lastName": {
+                    "placeholder": "Last Name",
+                    "error": "Please enter a valid last name"
+                },
+                "email": {
+                    "placeholder": "Email",
+                    "error": "Please enter a valid email address"
+                },
+                "password": {
+                    "placeholder": "Password",
+                    "error": "Please enter a valid password, password must be 8 or more symbols"
+                }
+            },
+            "links": {
+                "toSignIn": "Sign In",
+                "toRestorePassword": "Forgot password?"
+            },
+            "buttons": {
+                "signUp": "Sign Up"
+            }
+        },
+        "restorePassword": {
+            "header": "Restore password",
+            "heading": "Restore password",
+            "inputs": {
+                "email": {
+                    "placeholder": "Email",
+                    "error": "Please enter a valid email address"
+                }
+            },
+            "success": {
+                "submit": "We have sent instructions for your email"
+            },
+            "links": {
+                "toSignIn": "Sign In",
+                "toSignUp": "Sign Up"
+            },
+            "buttons": {
+                "restorePassword": "Restore password"
+            }
+        },
+        "signOut": {
+            "title": "Sign Out",
+            "subtitle": "Are you sure?",
+            "buttons": {
+                "ok": "Yes",
+                "cancel": "No"
+            }
+        }
+    }
+}

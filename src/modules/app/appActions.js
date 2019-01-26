@@ -19,3 +19,5 @@ export const signOutError = createAction(constants.SIGN_OUT_ERROR);
 export const restorePsswordStart = createAction(constants.RESTORE_PASSWORD_START);
 export const restorePsswordOk = createAction(constants.RESTORE_PASSWORD_OK);
 export const restorePsswordError = createAction(constants.RESTORE_PASSWORD_ERROR);
+
+export const toggleLanguage = createAction(constants.TOGGLE_LANGUAGE);

@@ -9,6 +9,7 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
+import i18n from 'ex-react-native-i18n';
 import CartListComponent from './CartListComponent';
 import * as cartSelectors from '../../../modules/cart/cartSelectors';
 import * as cartActions from '../../../modules/cart/cartActions';
@@ -62,7 +63,7 @@ export default compose(
                 isCounter
                 count={cartItem[item.id].count}
                 fullWidth
-                titleActionButton='Remove from cart'
+                titleActionButton={i18n.t('main.cart.buttons.removeFromCart')}
                 onPressActionButton={() => props.removeItemFromCart({ id: item.id })}
             />
         ),

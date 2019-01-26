@@ -11,10 +11,11 @@ import { connect } from 'react-redux';
 import screens from '../../navigation/screens';
 import SignUpScreenComponent from './SignUpScreenComponent';
 import * as appOperations from '../../modules/app/appOperations';
-import { withLoadingModal } from '../../utils/enhancers';
+import { withLoadingModal, withLanguageOnChange } from '../../utils/enhancers';
 
 const mapStateToProps = state => ({
     isLoading: state.app.isSigningUp,
+    language: state.app.language,
 });
 
 const mapDispatchToProps = {
@@ -95,5 +96,6 @@ export default hoistStatics(
                 props.onChange('isValid', isValid);
             },
         ),
+        withLanguageOnChange('language', 'auth.signUp.header'),
     ),
 )(SignUpScreenComponent);

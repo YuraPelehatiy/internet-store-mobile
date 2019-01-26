@@ -5,27 +5,16 @@ import AboutUsNavigator from './AboutUsNavigator';
 import AuthNavigator from './AuthNavigator';
 import CartNavigator from './CartNavigator';
 import { UnauthorizedDrawer } from '../components';
+import SettingsNavigator from './SettingsNavigator';
+import TermsAndConditionsNavigator from './TermsAndConditionsNavigator';
 
 export default createDrawerNavigator({
     [screens.Home]: HomeNavigator,
-    [screens.AboutUs]: {
-        screen: AboutUsNavigator,
-        navigationOptions: {
-            title: 'About Us',
-        },
-    },
-    [screens.Cart]: {
-        screen: CartNavigator,
-        navigationOptions: {
-            title: 'Cart',
-        },
-    },
-    [screens.SignIn]: {
-        screen: AuthNavigator,
-        navigationOptions: {
-            title: 'Sign In',
-        },
-    },
+    [screens.AboutUs]: AboutUsNavigator,
+    [screens.TermsAndConditions]: TermsAndConditionsNavigator,
+    [screens.Cart]: CartNavigator,
+    [screens.Settings]: SettingsNavigator,
+    [screens.SignIn]: AuthNavigator,
 }, {
     initialRouteName: screens.Home,
     contentComponent: UnauthorizedDrawer,

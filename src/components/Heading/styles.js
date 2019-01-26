@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     text: {
-        color: '#000',
-        fontSize: 22,
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 20,
+        marginTop: 20,
     },
 });

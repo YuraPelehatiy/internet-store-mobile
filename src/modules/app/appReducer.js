@@ -2,6 +2,7 @@ import { handleActions } from 'redux-actions';
 import * as constants from './appConstants';
 
 const initialState = {
+    language: 'en',
     user: {},
     isSignedIn: false,
     error: null,
@@ -13,6 +14,10 @@ const initialState = {
 };
 
 export default handleActions({
+    [constants.TOGGLE_LANGUAGE]: (state, action) => ({
+        ...state,
+        language: action.payload.language,
+    }),
     [constants.ADD_USER]: (state, action) => ({
         ...state,
         user: action.payload.user,

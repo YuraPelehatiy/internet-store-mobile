@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Image, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import i18n from 'ex-react-native-i18n';
 import s from './styles';
 import { Button, CartButton } from '../../components';
 import screens from '../../navigation/screens';
@@ -19,21 +20,23 @@ const ProductScreen = ({
             <Text style={s.price}>{product.price} грн</Text>
             <Text style={s.description}>{product.description}</Text>
             <Button large onPress={() => addItemToCart({ id: product.id, value: 1 })}>
-                Add to Cart
+                {i18n.t('main.product.buttons.addToCart')}
             </Button>
             <View style={s.bottomSpace} />
         </ScrollView>
         <View style={s.footer}>
-            <Text style={s.footerPrice}>Price: {product.price} грн</Text>
+            <Text style={s.footerPrice}>
+                {i18n.t('main.product.price')}: {product.price} грн
+            </Text>
             <Button large onPress={() => addItemToCart({ id: product.id, value: 1 })}>
-                Add to Cart
+                {i18n.t('main.product.buttons.addToCart')}
             </Button>
         </View>
     </SafeAreaView>
 );
 
 ProductScreen.navigationOptions = ({ navigation }) => ({
-    headerTitle: navigation.getParam('title') || 'Product',
+    headerTitle: navigation.getParam('title') || i18n.t('main.product.defaultHeader'),
     headerRight: (
         <CartButton onPress={() => navigation.navigate(screens.Cart)} />
     ),

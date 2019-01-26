@@ -1,0 +1,146 @@
+{
+    "drawer": {
+        "home": "Головна",
+        "cart": "Кошик",
+        "aboutUs": "Про нас",
+        "profile": "Профіль",
+        "signIn": "Увійти",
+        "signUp": "Зареєструватися",
+        "signOut": "Вийти",
+        "settings": "Налаштування",
+        "t&c": "Правила та умови"
+    },
+    "main": {
+        "home": {
+            "header": "Головна"
+        },
+        "cart": {
+            "header": "Кошик",
+            "cart": "Кошик",
+            "totalPrice": "Ціна",
+            "emptyCart": {
+                "message": "Ваш кошик порожній",
+                "actionButton": "На головну"
+            },
+            "buttons": {
+                "removeFromCart": "Видалити з кошика",
+                "checkOut": "Оплатити"
+            }
+        },
+        "aboutUs": {
+            "header": "Про нас",
+            "content": "Про нас Screen"
+        },
+        "t&c": {
+            "header": "Правила та умови",
+            "content": "Правила та умови Screen"
+        },
+        "product": {
+            "headerDefault": "Продукт",
+            "price": "Ціна",
+            "buttons": {
+                "addToCart": "Додати в кошик"
+            }
+        },
+        "profile": {
+            "header": "Профіль",
+            "firstName": "Ім'я:",
+            "lastName": "Прізвище:",
+            "email": "Email:",
+            "registredAt": "Зареєстровано:"
+        },
+        "settings": {
+            "header": "Налаштування",
+            "heading": "Налаштування",
+            "settings": {
+                "language": {
+                    "title": "Мова",
+                    "values": {
+                        "en": "Англійська",
+                        "uk": "Українська"
+                    }
+                }
+            }
+        }
+    },
+    "auth": {
+        "signIn": {
+            "header": "Увійти",
+            "heading": "Увійти",
+            "inputs": {
+                "email": {
+                    "placeholder": "Пошта",
+                    "error": "Будь ласка введіть коректну адресу пошти"
+                },
+                "password": {
+                    "placeholder": "Пароль",
+                    "error": "Будь ласка введіть коректний пароль, пароль має містити 8 або більше символів"
+                }
+            },
+            "links": {
+                "toSignUp": "Зареєструватися",
+                "toRestorePassword": "Забули пароль?"
+            },
+            "buttons": {
+                "signIn": "Увійти"
+            }
+        },
+        "signUp": {
+            "header": "Зареєструватися",
+            "heading": "Зареєструватися",
+            "inputs": {
+                "firstName": {
+                    "placeholder": "Ім'я",
+                    "error": "Будь ласка введіть коректне ім'я"
+                },
+                "lastName": {
+                    "placeholder": "Прізвище",
+                    "error": "Будь ласка введіть коректне прізвище"
+                },
+                "email": {
+                    "placeholder": "Пошта",
+                    "error": "Будь ласка введіть коректну адресу пошти"
+                },
+                "password": {
+                    "placeholder": "Пароль",
+                    "error": "Будь ласка введіть коректний пароль, пароль має містити 8 або більше символів"
+                }
+            },
+            "links": {
+                "toSignIn": "Увійти",
+                "toRestorePassword": "Забули пароль?"
+            },
+            "buttons": {
+                "signUp": "Зареєструватися"
+            }
+        },
+        "restorePassword": {
+            "header": "Відновити пароль",
+            "heading": "Відновити пароль",
+            "inputs": {
+                "email": {
+                    "placeholder": "Пошта",
+                    "error": "Будь ласка введіть коректну адресу пошти"
+                }
+            },
+            "success": {
+                "submit": "Ми надіслали інструкції на вашу пошту"
+            },
+            "links": {
+                "toSignIn": "Увійти",
+                "toSignUp": "Зареєструватися"
+            },
+            "buttons": {
+                "restorePassword": "Відновити пароль"
+            }
+        },
+        "signOut": {
+            "title": "Вийти",
+            "subtitle": "Ви впевнені?",
+            "buttons": {
+                "ok": "Так",
+                "cancel": "Ні"
+            }
+        }
+    }
+}

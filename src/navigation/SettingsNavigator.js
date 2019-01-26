@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation';
 import screens from './screens';
-import AboutUsScreen from '../screens/AboutUs/AboutUsScreenContainer';
 import { defaultNavigationOptions } from './NavigationOptions';
+import SettingsScreen from '../screens/Settings/SettingsScreenContainer';
 
 export default createStackNavigator({
-    [screens.AboutUs]: AboutUsScreen,
+    [screens.Settings]: SettingsScreen,
 }, {
-    initialRouteName: screens.AboutUs,
+    initialRouteName: screens.Settings,
     defaultNavigationOptions,
 });

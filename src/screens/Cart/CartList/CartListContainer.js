@@ -3,9 +3,9 @@ import {
     compose,
     withHandlers,
     mapProps,
-    lifecycle,
+    // lifecycle,
     branch,
-    renderComponent
+    renderComponent,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
@@ -45,11 +45,11 @@ export default compose(
         }),
         navigateToHomeScreen: props => () => props.navigation.navigate(screens.Home),
     }),
-    lifecycle({
+    /* lifecycle({
         componentDidMount() {
-            this.props.fetchProductsByIds()
+            this.props.fetchProductsByIds();
         },
-    }),
+    }), */
     mapProps(props => ({
         ...props,
         renderProductButton: (item, cartItem) => (

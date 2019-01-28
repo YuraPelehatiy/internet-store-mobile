@@ -61,6 +61,17 @@
                     }
                 }
             }
+        },
+        "search": {
+            "header": {
+                "placeholder": "Пошук..."
+            },
+            "emptyListYet": {
+                "message": "Ви ще нічого не шукали"
+            },
+            "emptyListNotFound": {
+                "message": "Нічого не знайдено за вашим запитом"
+            }
         }
     },
     "auth": {

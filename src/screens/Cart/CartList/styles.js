@@ -12,6 +12,12 @@ export default StyleSheet.create({
         fontSize: 20,
         paddingBottom: 20,
     },
+    emptyList: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     cartList: {
         flex: 1,
         marginBottom: 57,

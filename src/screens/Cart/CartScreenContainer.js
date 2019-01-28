@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { hoistStatics, compose } from 'recompose';
+import { hoistStatics, compose, lifecycle } from 'recompose';
 import CartScreenComponent from './CartScreenComponent';
+import * as cartOperations from '../../modules/cart/cartOperations';
 import * as cartSelectors from '../../modules/cart/cartSelectors';
 import * as cartActions from '../../modules/cart/cartActions';
 import { withLanguageOnChange } from '../../utils/enhancers';
@@ -15,6 +16,7 @@ const mapDispatchToProps = {
     removeItemFromCart: cartActions.remove,
     increase: cartActions.increase,
     decrease: cartActions.decrease,
+    fetchProductsByIds: cartOperations.fetchProductsByIds,
 };
 
 export default hoistStatics(
@@ -23,6 +25,11 @@ export default hoistStatics(
             mapStateToProps,
             mapDispatchToProps,
         ),
+        lifecycle({
+            componentDidMount() {
+                this.props.fetchProductsByIds();
+            },
+        }),
         withLanguageOnChange('language', 'main.cart.header'),
     ),
 )(CartScreenComponent);

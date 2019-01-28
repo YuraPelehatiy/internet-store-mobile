@@ -5,11 +5,20 @@ import {
     TouchableOpacity,
     Platform,
 } from 'react-native';
+import { colors } from '../../styles';
 
-const Touchable = ({ children, ...props }) => {
+const Touchable = ({
+    style,
+    children,
+    rippleColor,
+    backgroundType,
+    borderless = false,
+    useForeground = false,
+    ...props
+}) => {
     if (Platform.Version <= 20) {
         return (
-            <TouchableOpacity {...props}>
+            <TouchableOpacity {...props} style={style}>
                 {children}
             </TouchableOpacity>
         );
@@ -18,13 +27,21 @@ const Touchable = ({ children, ...props }) => {
     return (
         <TouchableNativeFeedback
             {...props}
-            useForeground={Platform.Version >= 23}
+            useForeground={Platform.Version >= 23 && useForeground}
+            background={backgroundType
+                ? TouchableNativeFeedback.Ripple[backgroundType]()
+                : TouchableNativeFeedback.Ripple(rippleColor, borderless)
+            }
         >
-            <View>
+            <View style={style}>
                 {children}
             </View>
         </TouchableNativeFeedback>
     );
+};
+
+Touchable.defaultProps = {
+    rippleColor: colors.touchable.rippleColor,
 };
 
 export default Touchable;

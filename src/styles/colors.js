@@ -8,6 +8,7 @@ export default {
         backgroundColor: '#fff',
         textColor: '#000',
         textLinkColor: '#ff8a00',
+        backgroundContentColor: '#ccc',
     },
 
     activityIndicator: {
@@ -57,5 +58,10 @@ export default {
     },
     cartButton: {
         color: '#fff',
+    },
+
+    touchable: {
+        rippleColor: '#ff8a00',
+        darkRippleColor: '#777',
     },
 };

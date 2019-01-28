@@ -2,7 +2,12 @@ import React from 'react';
 import { View, Text, KeyboardAvoidingView } from 'react-native';
 import i18n from 'ex-react-native-i18n';
 import s from './styles';
-import { DrawerButton, Button, Input, ErrorSubmiting } from '../../components';
+import {
+    DrawerButton,
+    Button,
+    Input,
+    ErrorSubmiting,
+} from '../../components';
 
 const SignInScreen = ({
     navigateToSignUp,

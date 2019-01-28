@@ -5,9 +5,9 @@ import s from './styles';
 import { colors } from '../../styles';
 
 const HeaderButton = ({
-    iconName,
     left,
     right,
+    iconName,
     ...props
 }) => (
     <TouchableOpacity

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 
 const API_HOST = 'https://internet-store-api.herokuapp.com/api/';
+// const API_HOST = 'http://192.168.1.102:3111/api/';
 const API_VERSION = 'v3';
 
 let _token = null;
@@ -52,6 +53,11 @@ export const initApp = async () => {
 export const Products = {
     fetchProducts(offset, limit) {
         const query = `?offset=${offset}&limit=${limit}`;
+        return axios.get(`${API_HOST}${API_VERSION}/products${query}`);
+    },
+
+    fetchProductsBySearch(offset, limit, search) {
+        const query = `?offset=${offset}&limit=${limit}&search=${search}`;
         return axios.get(`${API_HOST}${API_VERSION}/products${query}`);
     },
 };

@@ -21,4 +21,5 @@ export default {
     Settings: 'Settings',
     Cart: 'Cart',
     TermsAndConditions: 'TermsAndConditions',
+    Search: 'Search',
 };

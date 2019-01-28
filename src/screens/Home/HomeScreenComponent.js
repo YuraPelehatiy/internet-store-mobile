@@ -2,7 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import i18n from 'ex-react-native-i18n';
-import { DrawerButton, CartButton } from '../../components';
+import {
+    DrawerButton,
+    CartButton,
+    HeaderButton,
+    SeveralHeaderButtonsWrapper,
+} from '../../components';
 import ProductListContainer from './ProductList/ProductListContainer';
 import screens from '../../navigation/screens';
 import s from './styles';
@@ -21,7 +26,13 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
         <DrawerButton />
     ),
     headerRight: (
-        <CartButton onPress={() => navigation.navigate(screens.Cart)} />
+        <SeveralHeaderButtonsWrapper>
+            <HeaderButton
+                onPress={() => navigation.navigate(screens.Search)}
+                iconName='magnify'
+            />
+            <CartButton onPress={() => navigation.navigate(screens.Cart)} />
+        </SeveralHeaderButtonsWrapper>
     ),
 });
 

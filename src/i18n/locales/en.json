@@ -62,6 +62,17 @@
                     }
                 }
             }
+        },
+        "search": {
+            "header": {
+                "placeholder": "Search..."
+            },
+            "emptyListYet": {
+                "message": "You have not yet been looking for anything"
+            },
+            "emptyListNotFound": {
+                "message": "Nothing was found on your request"
+            }
         }
     },
     "auth": {

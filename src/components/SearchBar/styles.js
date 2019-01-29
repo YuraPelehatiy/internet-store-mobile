@@ -1,19 +1,20 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../styles/colors';
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ff8a00',
+        backgroundColor: colors.header.backgroundColor,
         borderBottomWidth: 0,
         borderTopWidth: 0,
         paddingTop: 0,
         paddingBottom: 0,
     },
     input: {
-        backgroundColor: '#ff8a00',
+        backgroundColor: colors.header.backgroundColor,
         color: '#fff',
     },
     inputContainer: {
-        backgroundColor: '#ff8a00',
+        backgroundColor: colors.header.backgroundColor,
     },
 });

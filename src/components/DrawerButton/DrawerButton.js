@@ -1,12 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, Keyboard } from 'react-native';
+import { Keyboard } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
 import { colors } from '../../styles';
+import Touchable from '../Touchable/Touchable'; // eslint-disable-line
+
 
 const DrawerButton = ({ onPress, ...props }) => (
-    <TouchableOpacity
+    <Touchable
+        borderless
+        rippleColor={colors.touchable.darkRippleColor}
         {...props}
         onPress={() => {
             Keyboard.dismiss();
@@ -19,7 +23,7 @@ const DrawerButton = ({ onPress, ...props }) => (
             color={colors.drawerButton.color}
             name='menu'
         />
-    </TouchableOpacity>
+    </Touchable>
 );
 
 export default withNavigation(DrawerButton);

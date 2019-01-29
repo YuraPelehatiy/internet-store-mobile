@@ -17,7 +17,6 @@ const s = StyleSheet.create({
 });
 
 // Screen-helper
-// TODO: Change AuthLoadingScreen;
 const AuthLoadignScreen = () => (
     <SafeAreaView style={s.container}>
         <Loader />
@@ -37,12 +36,9 @@ export default compose(
     lifecycle({
         async componentDidMount() {
             try {
-                console.log('Init...');
                 await this.props.init();
-                console.log('Inited!');
                 this.props.navigation.navigate(screens.AuthorizedApp);
             } catch (error) {
-                console.log('Error token not found');
                 this.props.navigation.navigate(screens.UnauthorizedApp);
             }
         },

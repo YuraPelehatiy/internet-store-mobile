@@ -3,11 +3,11 @@ import {
     View,
     Text,
     Image,
-    TouchableOpacity,
 } from 'react-native';
 import s from './styles';
 import Button from '../Button/Button';
 import Counter from '../Counter/Counter';
+import Touchable from '../Touchable/Touchable'; // eslint-disable-line
 
 const ProductButton = ({
     id,
@@ -19,12 +19,14 @@ const ProductButton = ({
     decrease,
     isCounter,
     fullWidth,
+    samllImage,
     onEnterValue,
     titleActionButton,
     onPressActionButton,
     ...props
 }) => (
-    <TouchableOpacity
+    <Touchable
+        useForeground
         {...props}
         style={[s.button, fullWidth && s.buttonFullWidth]}
     >
@@ -43,7 +45,7 @@ const ProductButton = ({
             <View style={[s.container]}>
                 <Image
                     source={{ uri: image }}
-                    style={s.img}
+                    style={[s.img, samllImage && s.smallImg]}
                 />
                 <View>
                     <Text style={s.title}>
@@ -65,7 +67,7 @@ const ProductButton = ({
             )
             }
         </View>
-    </TouchableOpacity>
+    </Touchable>
 );
 
 export default ProductButton;

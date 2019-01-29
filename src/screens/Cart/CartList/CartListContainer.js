@@ -55,14 +55,15 @@ export default compose(
         renderProductButton: (item, cartItem) => (
             <ProductButton
                 {...item}
+                isCounter
+                fullWidth
+                samllImage
                 key={item.id}
                 onPress={() => props.navigateToProductScreen(item)}
                 increase={props.increase}
                 decrease={props.decrease}
                 onEnterValue={props.onEnterValue}
-                isCounter
                 count={cartItem[item.id].count}
-                fullWidth
                 titleActionButton={i18n.t('main.cart.buttons.removeFromCart')}
                 onPressActionButton={() => props.removeItemFromCart({ id: item.id })}
             />

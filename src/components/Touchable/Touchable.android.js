@@ -10,7 +10,7 @@ import { colors } from '../../styles';
 const Touchable = ({
     style,
     children,
-    rippleColor,
+    rippleColor = colors.touchable.rippleColor,
     backgroundType,
     borderless = false,
     useForeground = false,

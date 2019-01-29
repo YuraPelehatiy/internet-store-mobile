@@ -1,8 +1,9 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
 import { colors } from '../../styles';
+import Touchable from '../Touchable/Touchable'; // eslint-disable-line
+
 
 const HeaderButton = ({
     left,
@@ -10,7 +11,9 @@ const HeaderButton = ({
     iconName,
     ...props
 }) => (
-    <TouchableOpacity
+    <Touchable
+        borderless
+        rippleColor={colors.touchable.darkRippleColor}
         {...props}
         style={[left && s.buttonLeft, right && s.buttonRight]}
     >
@@ -19,7 +22,7 @@ const HeaderButton = ({
             color={colors.header.headerButtonsColor}
             name={iconName}
         />
-    </TouchableOpacity>
+    </Touchable>
 );
 
 export default HeaderButton;

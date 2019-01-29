@@ -18,4 +18,5 @@ export default createDrawerNavigator({
 }, {
     initialRouteName: screens.Home,
     contentComponent: UnauthorizedDrawer,
+    drawerWidth: 300,
 });

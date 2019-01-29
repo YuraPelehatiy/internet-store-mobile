@@ -22,6 +22,8 @@ export default {
     productButton: {
         title: '#ff8a00',
         price: '#000',
+        backgroundColor: '#fff',
+        borderColor: '#ddd',
     },
 
     drawer: {

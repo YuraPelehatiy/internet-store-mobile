@@ -1,16 +1,20 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
 import * as cartSelectors from '../../modules/cart/cartSelectors';
 import { colors } from '../../styles';
+import Touchable from '../Touchable/Touchable'; // eslint-disable-line
+
 
 const CartButton = ({
     countItems,
     ...props
 }) => (
-    <TouchableOpacity
+    <Touchable
+        borderless
+        rippleColor={colors.touchable.darkRippleColor}
         {...props}
         style={s.button}
     >
@@ -24,7 +28,7 @@ const CartButton = ({
                 {countItems}
             </Text>
         </View>
-    </TouchableOpacity>
+    </Touchable>
 );
 
 const mapStateToProps = state => ({

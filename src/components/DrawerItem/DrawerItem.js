@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
 import { colors } from '../../styles';
 import Separator from '../Separator/Separator';
+import Touchable from '../Touchable/Touchable'; // eslint-disable-line
 
 const DrawerItem = ({
     iconName,
@@ -34,7 +35,9 @@ const DrawerItem = ({
     };
 
     return (
-        <TouchableOpacity onPress={() => onPressTouchable()}>
+        <Touchable
+            onPress={() => onPressTouchable()}
+        >
             <View style={[s.container, isActive && s.containerActive]}>
                 <MaterialCommunityIcons
                     size={28}
@@ -48,7 +51,7 @@ const DrawerItem = ({
                     {title}
                 </Text>
             </View>
-        </TouchableOpacity>
+        </Touchable>
     );
 };
 

@@ -5,5 +5,7 @@
 5: Add filters for products (and for server)
 6: Add saving recent search
 7: Add editing profile
+8: Add wishes and save them in database (and for server)
+9: Add check list
 
 !!! Remove data from inputs in sign in and sign up

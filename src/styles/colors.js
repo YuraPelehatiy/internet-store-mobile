@@ -31,7 +31,7 @@ export default {
     },
 
     header: {
-        backgroundColor: '#ff8a00',
+        backgroundColor: '#333',
         headerTintColor: '#fff',
         headerButtonsColor: '#fff',
     },

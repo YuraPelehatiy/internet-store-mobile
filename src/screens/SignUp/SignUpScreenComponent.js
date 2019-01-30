@@ -20,9 +20,11 @@ const SignUpScreen = ({
     isValidPassword,
     isShowingKeyboard,
 }) => (
-    <KeyboardAvoidingView style={s.container} behavior='padding'>
+    <KeyboardAvoidingView style={s.container} behavior='padding' keyboardVerticalOffset={20}>
         <View style={s.top}>
-            <Text style={s.header}>{i18n.t('auth.signUp.heading')}</Text>
+            {!isShowingKeyboard && (
+                <Text style={s.header}>{i18n.t('auth.signUp.heading')}</Text>
+            )}
             <Input
                 value={firstName}
                 onChangeText={text => onChange('firstName', text)}

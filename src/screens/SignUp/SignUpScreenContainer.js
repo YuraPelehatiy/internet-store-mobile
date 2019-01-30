@@ -36,6 +36,7 @@ export default hoistStatics(
             isValidLastName: false,
             isValidPassword: false,
             isValidEmail: false,
+            isShowingKeyboard: false,
             errorMessage: '',
         }, {
             onChange: () => (field, value) => ({

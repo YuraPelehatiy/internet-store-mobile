@@ -44,6 +44,7 @@
         },
         "profile": {
             "header": "Профіль",
+            "heading": "Профіль",
             "firstName": "Ім'я:",
             "lastName": "Прізвище:",
             "email": "Email:",

@@ -38,9 +38,7 @@ const AuthorizedDrawer = ({
 
     return (
         <ScrollView>
-            <SafeAreaView
-                forceInset={{ top: 'always', horizontal: 'never' }}
-            >
+            <SafeAreaView>
                 <Logo />
                 {items.map((item, index) => (
                     <DrawerItem

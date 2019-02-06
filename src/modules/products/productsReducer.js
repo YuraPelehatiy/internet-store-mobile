@@ -8,6 +8,7 @@ const initialState = {
     limit: 12,
     offset: 0,
     part: 0,
+    allProductsCount: 0,
 };
 
 export default handleActions(
@@ -28,6 +29,11 @@ export default handleActions(
             error: actions.payload,
         }),
         [constants.FETCH_MORE]: (state, actions) => fetchMoreHandler(state, actions),
+        [constants.SET_PRODUCTS_COUNT]: (state, actions) => ({
+            ...state,
+            allProductsCount: actions.payload.all,
+            downloadedProductsCount: actions.payload.downloaded,
+        }),
     },
     initialState,
 );
@@ -43,6 +49,5 @@ function fetchMoreHandler(state, actions) {
         ...state,
         part: actions.payload.part,
         offset: actions.payload.part * state.limit,
-        // limit: actions.payload.part * state.limit,
     });
 }

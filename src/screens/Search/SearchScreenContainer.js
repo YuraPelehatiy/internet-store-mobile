@@ -60,7 +60,6 @@ export default hoistStatics(
                     props.fethProducts();
                 }, 1000);
                 props.onChangeTimeoutId(timeoutId);
-                // props.setSearchValue({ value: props.searchValue });
             },
         }),
         lifecycle({
@@ -69,6 +68,9 @@ export default hoistStatics(
                     onChangeTextSearch: this.props.onChangeTextSearch,
                     onEndEditingSearch: this.props.onEndEditingSearch,
                 });
+            },
+            componentWillUnmount() {
+                this.props.setSearchValue({ value: '' });
             },
         }),
         withLanguageOnChange('language', 'main.search.header'),

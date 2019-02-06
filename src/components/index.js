@@ -18,6 +18,7 @@ export { default as HeaderButton } from './HeaderButton/HeaderButton';
 export { default as SearchBar } from './SearchBar/SearchBar';
 export { default as SeveralHeaderButtonsWrapper } from './SeveralHeaderButtonsWrapper/SeveralHeaderButtonsWrapper';
 export { default as EmptyList } from './EmptyList/EmpytList';
+export { default as ProductsCount } from './ProductsCount/ProductsCount';
 
 
 /* eslint-disable */

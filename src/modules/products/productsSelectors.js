@@ -10,3 +10,5 @@ export const getProducts = createSelector(
 );
 
 export const getProduct = createSelector(getProductById, result => result);
+
+export const getDownloadedProductsCount = createSelector(getProductsIds, result => result.length);

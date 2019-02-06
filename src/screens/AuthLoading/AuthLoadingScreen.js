@@ -1,26 +1,13 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { SafeAreaView, } from 'react-navigation'; // eslint-disable-line
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
-import { Loader } from '../../components';
 import screens from '../../navigation/screens';
 import * as appOperations from '../../modules/app/appOperations';
-
-const s = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+import LoadingScreen from '../Loading/LoadingScreen';
 
 // Screen-helper
 const AuthLoadignScreen = () => (
-    <SafeAreaView style={s.container}>
-        <Loader />
-    </SafeAreaView>
+    <LoadingScreen />
 );
 
 

@@ -11,6 +11,12 @@ export default {
         backgroundContentColor: '#ccc',
     },
 
+    searchBar: {
+        textColor: '#fff',
+        textPlaceholderColor: '#eee',
+        clearIcon: '#eee',
+    },
+
     activityIndicator: {
         color: '#ff8a00',
     },
@@ -65,5 +71,10 @@ export default {
     touchable: {
         rippleColor: '#ff8a00',
         darkRippleColor: '#777',
+    },
+
+    productCount: {
+        backgroundColor: '#333',
+        textColor: '#fff',
     },
 };

@@ -12,7 +12,7 @@ export default StyleSheet.create({
     },
     input: {
         backgroundColor: colors.header.backgroundColor,
-        color: '#fff',
+        color: colors.searchBar.textColor,
     },
     inputContainer: {
         backgroundColor: colors.header.backgroundColor,

@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-navigation';
 import i18n from 'ex-react-native-i18n';
 import { SearchBar } from '../../components';
 import SearchListContainer from './SearchList/SearchListContainer';
-// import screens from '../../navigation/screens';
 import s from './styles';
 
 const SearchScreen = () => (

@@ -7,16 +7,26 @@ import {
     CartButton,
     HeaderButton,
     SeveralHeaderButtonsWrapper,
+    ProductsCount,
 } from '../../components';
 import ProductListContainer from './ProductList/ProductListContainer';
 import screens from '../../navigation/screens';
 import s from './styles';
 
-const HomeScreen = () => (
+const HomeScreen = ({
+    allProductsCount,
+    downloadedProductsCount,
+}) => (
     <SafeAreaView style={s.container}>
         <View style={s.list}>
             <ProductListContainer />
         </View>
+        {!!(allProductsCount) && (
+            <ProductsCount
+                all={allProductsCount}
+                downloaded={downloadedProductsCount}
+            />
+        )}
     </SafeAreaView>
 );
 

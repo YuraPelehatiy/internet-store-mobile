@@ -9,6 +9,7 @@ const initialState = {
     offset: 0,
     part: 0,
     allProductsCount: 0,
+    smallError: null,
 };
 
 export default handleActions(
@@ -29,10 +30,17 @@ export default handleActions(
             error: actions.payload,
         }),
         [constants.FETCH_MORE]: (state, actions) => fetchMoreHandler(state, actions),
-        [constants.SET_PRODUCTS_COUNT]: (state, actions) => ({
+        [constants.GET_COUNT_PRODUCTS_START]: state => ({
             ...state,
-            allProductsCount: actions.payload.all,
-            downloadedProductsCount: actions.payload.downloaded,
+            smallError: null,
+        }),
+        [constants.GET_COUNT_PRODUCTS_OK]: (state, actions) => ({
+            ...state,
+            allProductsCount: actions.payload.count,
+        }),
+        [constants.GET_COUNT_PRODUCTS_ERROR]: (state, actions) => ({
+            ...state,
+            smallError: actions.payload,
         }),
     },
     initialState,

@@ -2,15 +2,24 @@ import React from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import i18n from 'ex-react-native-i18n';
-import { SearchBar } from '../../components';
+import { SearchBar, ProductsCount } from '../../components';
 import SearchListContainer from './SearchList/SearchListContainer';
 import s from './styles';
 
-const SearchScreen = () => (
+const SearchScreen = ({
+    allProductsCount,
+    downloadedProductsCount,
+}) => (
     <SafeAreaView style={s.container}>
         <View style={s.list}>
             <SearchListContainer />
         </View>
+        {!!(allProductsCount) && (
+            <ProductsCount
+                all={allProductsCount}
+                downloaded={downloadedProductsCount}
+            />
+        )}
     </SafeAreaView>
 );
 

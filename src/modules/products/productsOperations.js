@@ -32,12 +32,13 @@ export const fetchProducts = refres => async (dispatch, getState) => {
 export const getProductsCount = () => async (dispatch) => {
     try {
         const res = await Api.Products.getProductsCount();
-        const count = res.data[0].count;
+        const count = res.data.count;
 
-        dispatch(actions.setProductsCount({
-            all: count,
+        dispatch(actions.getCountProductsStart());
+        dispatch(actions.getCountProductsOk({
+            count,
         }));
     } catch (error) {
-        console.log('Errro get count products');
+        dispatch(actions.getCountProductsError(error.message));
     }
 };

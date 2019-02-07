@@ -66,6 +66,11 @@ export const Products = {
     getProductsCount() {
         return axios.get(`${API_HOST}${API_VERSION}/products-count`);
     },
+
+    getProductsCountBySearch(search) {
+        const query = `?search=${search}`;
+        return axios.get(`${API_HOST}${API_VERSION}/products-count${query}`);
+    },
 };
 
 export const Cart = {

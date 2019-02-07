@@ -7,4 +7,6 @@ export const fetchProductsError = createAction(constants.FETCH_PRODUCTS_ERROR);
 
 export const fetchMore = createAction(constants.FETCH_MORE);
 
-export const setProductsCount = createAction(constants.SET_PRODUCTS_COUNT);
+export const getCountProductsStart = createAction(constants.GET_COUNT_PRODUCTS_START);
+export const getCountProductsOk = createAction(constants.GET_COUNT_PRODUCTS_OK);
+export const getCountProductsError = createAction(constants.GET_COUNT_PRODUCTS_ERROR);

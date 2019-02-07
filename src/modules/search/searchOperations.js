@@ -27,3 +27,18 @@ export const fetchProductsSearch = () => async (dispatch, getState) => {
         dispatch(actions.fetchProductsError(error.message));
     }
 };
+
+export const getProductsCountSearch = () => async (dispatch, getState) => {
+    try {
+        const search = getState().search.search;
+        const res = await Api.Products.getProductsCountBySearch(search);
+        const count = res.data.count;
+
+        dispatch(actions.getCountProductsStart());
+        dispatch(actions.getCountProductsOk({
+            count,
+        }));
+    } catch (error) {
+        dispatch(actions.getCountProductsError(error.message));
+    }
+};

@@ -10,16 +10,21 @@ import SearchScreen from './SearchScreenComponent';
 import { withLanguageOnChange } from '../../utils/enhancers';
 import * as searchOperations from '../../modules/search/searchOperations';
 import * as searchActions from '../../modules/search/searchActions';
+import * as searchSelectors from '../../modules/search/searchSelectors';
 
 
 const mapStateToProps = state => ({
     language: state.app.language,
+    allProductsCount: state.search.allProductsCount,
+    downloadedProductsCount: searchSelectors.getDownloadedProductsCount(state),
 });
 
 const mapDispatchToProps = {
     fethProducts: searchOperations.fetchProductsSearch,
     setSearchValue: searchActions.setSearchValue,
     clearProductsIds: searchActions.clearProductsIds,
+    getProductsCount: searchOperations.getProductsCountSearch,
+    clearPreviousSearchResult: searchActions.clearPreviousSearchResult,
 };
 
 export default hoistStatics(
@@ -44,6 +49,7 @@ export default hoistStatics(
                 props.setSearchValue({ value: props.searchValue });
                 props.clearProductsIds();
                 props.fethProducts();
+                props.getProductsCount();
             },
             onChangeText: props => () => {
                 if (props.searchValue.trim().length === 0) {
@@ -58,6 +64,7 @@ export default hoistStatics(
                     props.clearProductsIds();
                     props.setSearchValue({ value: props.searchValue });
                     props.fethProducts();
+                    props.getProductsCount();
                 }, 1000);
                 props.onChangeTimeoutId(timeoutId);
             },
@@ -71,6 +78,7 @@ export default hoistStatics(
             },
             componentWillUnmount() {
                 this.props.setSearchValue({ value: '' });
+                this.props.clearPreviousSearchResult();
             },
         }),
         withLanguageOnChange('language', 'main.search.header'),

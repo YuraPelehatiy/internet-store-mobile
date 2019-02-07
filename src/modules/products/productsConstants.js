@@ -4,4 +4,6 @@ export const FETCH_PRODUCTS_ERROR = 'products/FETCH_PRODUCTS_ERROR';
 
 export const FETCH_MORE = 'products/FETCH_MORE';
 
-export const SET_PRODUCTS_COUNT = 'products/SET_PRODUCTS_COUNT';
+export const GET_COUNT_PRODUCTS_START = 'products/GET_COUNT_PRODUCTS_START';
+export const GET_COUNT_PRODUCTS_OK = 'products/GET_COUNT_PRODUCTS_OK';
+export const GET_COUNT_PRODUCTS_ERROR = 'products/GET_COUNT_PRODUCTS_ERROR';

@@ -9,6 +9,9 @@ const initialState = {
     offset: 0,
     part: 0,
     search: '',
+    searchHistory: [],
+    allProductsCount: 0,
+    smallError: null,
 };
 
 export default handleActions(
@@ -36,6 +39,25 @@ export default handleActions(
         [constants.CLEAR_PRODUCTS_IDS]: state => ({
             ...state,
             products: [],
+            allProductsCount: 0,
+        }),
+        [constants.CLEAR_PREVIOUS_SEARCH_RESULT]: state => ({
+            ...state,
+            products: [],
+            allProductsCount: 0,
+            search: '',
+        }),
+        [constants.GET_COUNT_PRODUCTS_START]: state => ({
+            ...state,
+            smallError: null,
+        }),
+        [constants.GET_COUNT_PRODUCTS_OK]: (state, actions) => ({
+            ...state,
+            allProductsCount: actions.payload.count,
+        }),
+        [constants.GET_COUNT_PRODUCTS_ERROR]: (state, actions) => ({
+            ...state,
+            smallError: actions.payload,
         }),
     },
     initialState,

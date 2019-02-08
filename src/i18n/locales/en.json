@@ -154,5 +154,11 @@
                 "cancel": "No"
             }
         }
+    },
+    "errors": {
+        "signOut": {
+            "title": "Sign Out",
+            "subtitle": "Sorry something went wrong, try again"
+        }
     }
 }

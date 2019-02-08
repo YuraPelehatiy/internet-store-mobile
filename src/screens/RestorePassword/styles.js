@@ -8,7 +8,7 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingVertical: 0,
-        paddingHorizontal: 20,
+        paddingHorizontal: 15,
     },
     header: {
         fontSize: 20,

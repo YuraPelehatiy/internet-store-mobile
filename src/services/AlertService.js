@@ -15,3 +15,12 @@ export const signOut = (onPress) => {
         ],
     );
 };
+
+export const error = (title, subtitle, button, options) => {
+    showAlert(
+        title,
+        subtitle,
+        button,
+        options,
+    );
+};

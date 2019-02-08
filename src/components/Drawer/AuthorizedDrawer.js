@@ -78,7 +78,10 @@ export default compose(
                     await props.signOut();
                     props.navigation.navigate(screens.UnauthorizedApp);
                 } catch (error) {
-                    console.log(error);
+                    AlertService.error(
+                        i18n.t('errors.signOut.title'),
+                        i18n.t('errors.signOut.subtitle'),
+                    );
                 }
             },
         ),

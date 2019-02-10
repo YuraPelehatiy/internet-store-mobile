@@ -28,6 +28,7 @@ const Touchable = ({
         <TouchableNativeFeedback
             {...props}
             useForeground={Platform.Version >= 23 && useForeground}
+            delayPressIn={0}
             background={backgroundType
                 ? TouchableNativeFeedback.Ripple[backgroundType]()
                 : TouchableNativeFeedback.Ripple(rippleColor, borderless)

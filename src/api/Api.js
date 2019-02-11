@@ -81,6 +81,18 @@ export const Cart = {
     },
 };
 
+export const Wishes = {
+    getWishes() {
+        return axios.get(`${API_HOST}${API_VERSION}/wish/`);
+    },
+    addWish(id) {
+        return axios.patch(`${API_HOST}${API_VERSION}/wish/${id}`);
+    },
+    removeWish(id) {
+        return axios.delete(`${API_HOST}${API_VERSION}/wish/${id}`);
+    },
+};
+
 export const Auth = {
     login(body) {
         return axios.post(`${API_HOST}${API_VERSION}/auth/login`, body);

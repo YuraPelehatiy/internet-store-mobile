@@ -8,18 +8,21 @@ const getProductsItems = (state, isLoading) => {
         return [];
     }
 
-    return state.cart.items;
+    return state.wishes.items;
 };
+
+const getWishInItemsStatus = (state, id) => state.wishes.items.includes(id);
+const getWishInProgressStatus = (state, id) => state.wishes.wishesInProgress.includes(id);
 
 const getProductsEntities = state => state.entities.products;
 
 export const getProducts = createSelector(
     [getProductsItems, getProductsEntities],
-    (items, entities) => Object.keys(items).map((id) => {
+    (items, entities) => items.map((id) => {
         if (entities[id] === undefined) {
             return ({
                 id,
-                showLoader: true,
+                title: 'Loading...',
                 price: 0,
             });
         }
@@ -41,4 +44,14 @@ export const getTotalPrice = createSelector(
     (products, items) => (
         products.reduce((acc, product) => acc + product.price * items[product.id].count, 0)
     ),
+);
+
+export const getCheckWishInProgress = createSelector(
+    [getWishInProgressStatus],
+    result => result,
+);
+
+export const getCheckWishInItems = createSelector(
+    [getWishInItemsStatus],
+    result => result,
 );

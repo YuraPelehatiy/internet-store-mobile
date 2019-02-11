@@ -1,14 +1,19 @@
 import React from 'react';
-import { Text, Image, View, ScrollView } from 'react-native';
+import {
+    Text, Image, View, ScrollView,
+} from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import i18n from 'ex-react-native-i18n';
 import s from './styles';
-import { Button, CartButton } from '../../components';
+import { Button, CartButton, WishButton } from '../../components';
 import screens from '../../navigation/screens';
 
 const ProductScreen = ({
     product,
     addItemToCart,
+    addOrRemoveWish,
+    isWishInItems,
+    isWishInProgress,
 }) => (
     <SafeAreaView style={s.container}>
         <ScrollView contentContainerStyle={s.containerScroll}>
@@ -28,6 +33,11 @@ const ProductScreen = ({
             <Text style={s.footerPrice}>
                 {i18n.t('main.product.price')}: {product.price} грн
             </Text>
+            <WishButton
+                onPress={() => addOrRemoveWish({ id: product.id })}
+                isInProgress={isWishInProgress}
+                isActive={isWishInItems}
+            />
             <Button large onPress={() => addItemToCart({ id: product.id, value: 1 })}>
                 {i18n.t('main.product.buttons.addToCart')}
             </Button>

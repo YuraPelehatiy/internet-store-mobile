@@ -1,4 +1,5 @@
 import { normalize } from 'normalizr';
+import _ from 'lodash';
 import * as schemes from '../../api/Schemes';
 import * as cartActions from './cartActions';
 import * as Api from '../../api/Api';
@@ -18,10 +19,8 @@ export const fetchProductsByIds = () => async (dispatch, getState) => {
 
             return false;
         });
-        fetchIds = fetchIds.sort();
-        if (fetchIds.indexOf(false) !== -1) {
-            fetchIds.splice(fetchIds.indexOf(false));
-        }
+
+        fetchIds = _.compact(fetchIds);
 
 
         if (fetchIds.length === 0 || isLoading) {

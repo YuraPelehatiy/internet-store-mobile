@@ -12,6 +12,7 @@
     "ex-react-native-i18n": "0.0.5",
     "expo": "^31.0.2",
     "expo-font": "^2.0.0",
+    "lodash": "^4.17.11",
     "normalizr": "^3.3.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",

@@ -31,10 +31,11 @@ export const fetchProducts = refres => async (dispatch, getState) => {
 
 export const getProductsCount = () => async (dispatch) => {
     try {
+        dispatch(actions.getCountProductsStart());
+
         const res = await Api.Products.getProductsCount();
         const count = res.data.count;
 
-        dispatch(actions.getCountProductsStart());
         dispatch(actions.getCountProductsOk({
             count,
         }));

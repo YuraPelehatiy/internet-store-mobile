@@ -3,6 +3,7 @@ import {
     View,
     Text,
     Image,
+    ActivityIndicator,
 } from 'react-native';
 import s from './styles';
 import Button from '../Button/Button';
@@ -23,6 +24,7 @@ const ProductButton = ({
     onEnterValue,
     titleActionButton,
     onPressActionButton,
+    showLoader,
     ...props
 }) => (
     <Touchable
@@ -43,18 +45,27 @@ const ProductButton = ({
                 )}
             </View>
             <View style={[s.container]}>
-                <Image
-                    source={{ uri: image }}
-                    style={[s.img, samllImage && s.smallImg]}
-                />
-                <View>
-                    <Text style={s.title}>
-                        {title}
-                    </Text>
-                    <Text style={s.price}>
-                        {`${price} грн`}
-                    </Text>
-                </View>
+                {showLoader
+                    ? (
+                        <ActivityIndicator color='#ff8a00' size={55} />
+                    )
+                    : (
+                        <>
+                            <Image
+                                source={{ uri: image }}
+                                style={[s.img, samllImage && s.smallImg]}
+                            />
+                            <View>
+                                <Text style={s.title}>
+                                    {title}
+                                </Text>
+                                <Text style={s.price}>
+                                    {`${price} грн`}
+                                </Text>
+                            </View>
+                        </>
+                    )
+                }
             </View>
             {titleActionButton
             && onPressActionButton

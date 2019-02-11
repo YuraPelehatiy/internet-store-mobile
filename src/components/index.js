@@ -20,7 +20,7 @@ export { default as SeveralHeaderButtonsWrapper } from './SeveralHeaderButtonsWr
 export { default as EmptyList } from './EmptyList/EmpytList';
 export { default as ProductsCount } from './ProductsCount/ProductsCount';
 export { default as FlatListPure } from './FlatListPure/FlatListPure';
-
+export { default as WishButton } from './WishButton/WihsButton';
 
 /* eslint-disable */
 // If you import two different components for ios and android,

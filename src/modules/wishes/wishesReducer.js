@@ -10,7 +10,7 @@ const initialState = {
         // Array of products' ids that adding or removing
     ],
     errorWishes: [
-        // Array of products' ids that adding or removing
+        // Array of products' ids that get crash adding or removing
     ],
 };
 
@@ -32,6 +32,7 @@ export default handleActions({
     [constants.ADD_WISH_START]: (state, action) => ({
         ...state,
         wishesInProgress: [...state.wishesInProgress].concat(action.payload.id),
+        errorWishes: _.pull(state.errorWishes, action.payload.id),
         error: null,
     }),
     [constants.ADD_WISH_OK]: (state, action) => ({
@@ -48,6 +49,7 @@ export default handleActions({
     [constants.REMOVE_WISH_START]: (state, action) => ({
         ...state,
         wishesInProgress: [...state.wishesInProgress].concat(action.payload.id),
+        errorWishes: _.pull(state.errorWishes, action.payload.id),
         error: null,
     }),
     [constants.REMOVE_WISH_OK]: (state, action) => ({

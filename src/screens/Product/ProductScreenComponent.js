@@ -5,7 +5,7 @@ import {
 import { SafeAreaView } from 'react-navigation';
 import i18n from 'ex-react-native-i18n';
 import s from './styles';
-import { Button, CartButton, WishButton } from '../../components';
+import { Button, CartButton, SmartButton } from '../../components';
 import screens from '../../navigation/screens';
 
 const ProductScreen = ({
@@ -33,10 +33,13 @@ const ProductScreen = ({
             <Text style={s.footerPrice}>
                 {i18n.t('main.product.price')}: {product.price} грн
             </Text>
-            <WishButton
+            <SmartButton
                 onPress={() => addOrRemoveWish({ id: product.id })}
-                isInProgress={isWishInProgress}
+                isShowLoader={isWishInProgress}
                 isActive={isWishInItems}
+                secondary
+                iconName='heart-outline'
+                iconNameActive='heart'
             />
             <Button large onPress={() => addItemToCart({ id: product.id, value: 1 })}>
                 {i18n.t('main.product.buttons.addToCart')}

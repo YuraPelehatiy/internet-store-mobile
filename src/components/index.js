@@ -21,6 +21,8 @@ export { default as EmptyList } from './EmptyList/EmpytList';
 export { default as ProductsCount } from './ProductsCount/ProductsCount';
 export { default as FlatListPure } from './FlatListPure/FlatListPure';
 export { default as WishButton } from './WishButton/WihsButton';
+export { default as SmartButton } from './SmartButton/SmartButton';
+
 
 /* eslint-disable */
 // If you import two different components for ios and android,

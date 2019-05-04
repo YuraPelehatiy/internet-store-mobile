@@ -3,14 +3,19 @@ import { colors } from '../../styles';
 
 export default StyleSheet.create({
     button: {
-        backgroundColor: '#333',
-        color: colors.white,
+        color: colors.smartButton.textColor,
         borderWidth: 0,
         borderRadius: 5,
         padding: 10,
     },
+    buttonBackgroundColor: {
+        backgroundColor: colors.smartButton.backgroundColor,
+    },
+    buttonBackgroundColorSecondary: {
+        backgroundColor: colors.smartButton.backgroundColorSecondary,
+    },
     buttonText: {
-        color: colors.white,
+        color: colors.smartButton.textColor,
         textAlign: 'center',
     },
     buttonLarge: {

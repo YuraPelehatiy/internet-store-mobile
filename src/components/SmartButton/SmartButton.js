@@ -1,21 +1,25 @@
 import React from 'react';
-import { TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+    TouchableOpacity, ActivityIndicator, Text, View,
+} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import s from './styles';
+import { colors } from '../../styles';
 
 const SmartButton = ({
     onPress,
     children,
     isActive,
-    isInProgress,
+    isShowLoader,
     large,
     small,
     iconName,
     iconNameActive,
+    secondary,
     ...props
 }) => (
     <TouchableOpacity
-        disabled={isInProgress}
+        disabled={isShowLoader}
         onPress={onPress}
         {...props}
         style={[
@@ -23,18 +27,24 @@ const SmartButton = ({
             large && s.buttonLarge,
             small && s.buttonSmall,
             !large && !small && s.buttonMedium,
+            secondary ? s.buttonBackgroundColorSecondary : s.buttonBackgroundColor,
         ]}
     >
-        {isInProgress
+        {isShowLoader
             ? (
-                <ActivityIndicator size={30} color='#ff8a00' />
+                <ActivityIndicator size={30} color={colors.smartButton.loaderColor} />
             )
             : (
-                <MaterialCommunityIcons
-                    size={30}
-                    name={isActive ? 'heart' : 'heart-outline'}
-                    color='#fff'
-                />
+                <View>
+                    {children && <Text style={s.buttonText}>{children}</Text>}
+                    {iconName && (
+                        <MaterialCommunityIcons
+                            size={30}
+                            name={isActive ? iconNameActive || iconName : iconName}
+                            color={colors.smartButton.iconColor}
+                        />
+                    )}
+                </View>
             )
         }
     </TouchableOpacity>

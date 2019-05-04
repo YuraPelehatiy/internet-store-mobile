@@ -10,10 +10,10 @@ import { colors } from '../../styles';
 const Touchable = ({
     style,
     children,
-    rippleColor = colors.touchable.rippleColor,
+    rippleColor,
     backgroundType,
-    borderless = false,
-    useForeground = false,
+    borderless,
+    useForeground,
     ...props
 }) => {
     if (Platform.Version <= 20) {
@@ -43,6 +43,8 @@ const Touchable = ({
 
 Touchable.defaultProps = {
     rippleColor: colors.touchable.rippleColor,
+    borderless: false,
+    useForeground: false,
 };
 
 export default Touchable;

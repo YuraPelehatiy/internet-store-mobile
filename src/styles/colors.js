@@ -77,4 +77,12 @@ export default {
         backgroundColor: '#333',
         textColor: '#fff',
     },
+
+    smartButton: {
+        backgroundColor: '#ff8a00',
+        backgroundColorSecondary: '#333',
+        textColor: '#fff',
+        iconColor: '#fff',
+        loaderColor: '#fff',
+    },
 };
